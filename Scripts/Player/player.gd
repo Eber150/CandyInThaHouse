@@ -1,6 +1,11 @@
 extends CharacterBody3D
 
+
 const SPEED = 6.0;
+
+var candyPoints = 0;
+@onready var candyText := $Control/Label
+
 @onready var neck := $Neck;
 @onready var camera := $Neck/Camera3D;
 @onready var visionDirection := $Neck/Camera3D/RayCast3D;
@@ -29,5 +34,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x,0,SPEED);
 		velocity.z = move_toward(velocity.z,0, SPEED);
+		
+		
+	if(!is_on_floor()):
+		velocity.y = -9.8;
 	
 	move_and_slide();
+
+
+func _on_collision_sensor_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Candy"):
+		candyPoints += body.GetPoints();
+		candyText.text = "Candy: " + str(candyPoints);
+		body.queue_free();
