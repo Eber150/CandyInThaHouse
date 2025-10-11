@@ -34,3 +34,6 @@ mesh = SubResource("BoxMesh_1bbh4")
 shape = SubResource("ConvexPolygonShape3D_pyhkc")
 
 [node name="player2" parent="." instance=ExtResource("1_pyhkc")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.7296, 0)
