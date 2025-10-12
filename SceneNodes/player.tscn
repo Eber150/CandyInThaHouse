@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjygrk015pvav"]
+[gd_scene load_steps=6 format=3 uid="uid://cjygrk015pvav"]
 
 [ext_resource type="Script" uid="uid://dh6vh5v5p8uf3" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dbuw6qk1y1f18" path="res://images/crossHair.png" id="2_6t5aa"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4msq1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_m7pdq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fipui"]
+size = Vector3(1, 1.85034, 1.06592)
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_cvnsp")
@@ -44,3 +47,28 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_6t5aa")
+
+[node name="CollisionSensor" type="Area3D" parent="." groups=["Candy"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionSensor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0311279, 0.000732422)
+shape = SubResource("BoxShape3D_fipui")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.048
+offset_left = 1.0
+offset_bottom = -0.104
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Candy: 0"
+
+[connection signal="body_entered" from="CollisionSensor" to="." method="_on_collision_sensor_body_entered"]
