@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://doawch71o4t6q"]
+
+[ext_resource type="Script" uid="uid://cxmpod4i2jbom" path="res://Scripts/Enemies/Angel.gd" id="1_dy6gp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vgm2k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_85kgu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmiod"]
+size = Vector3(28.5357, 1, 19.7319)
+
+[node name="Angel" type="CharacterBody3D" node_paths=PackedStringArray("target", "navRegion") groups=["Enemy"]]
+script = ExtResource("1_dy6gp")
+chaseSpeed = 4.0
+patrolSpeed = 3.0
+target = NodePath("")
+navRegion = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_vgm2k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_85kgu")
+
+[node name="Detector" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detector"]
+shape = SubResource("BoxShape3D_wmiod")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
+[connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

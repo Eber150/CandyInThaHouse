@@ -58,7 +58,7 @@ func _on_collision_sensor_body_entered(body: Node3D) -> void:
 		body.queue_free();
 	
 	if body.is_in_group("Enemy"):
-		get_tree().reload_current_scene();
+		$"../LoseScreen".GameOver();
 	
 
 

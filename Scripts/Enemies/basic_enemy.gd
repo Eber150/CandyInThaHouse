@@ -1,14 +1,16 @@
+class_name  BasicEnemy
 extends CharacterBody3D
 
 @export var chaseSpeed : float;
 @export var patrolSpeed : float;
-@onready var currentSpeed := 5.0;
+var currentSpeed : float;
 
-@onready var navAgent=$NavigationAgent3D
-@onready var target= $"../player2"
-@onready var navRegion = $"../NavigationRegion3D"
+# esto es de cada enemigo con sus elementos correspondientes
+@export var target : CharacterBody3D
+@export var navRegion : NavigationRegion3D
 
-@onready var Detector = $Area3D
+var navAgent : NavigationAgent3D
+var Detector : Area3D
 
 @onready var isChasing: bool = false;
 
@@ -16,13 +18,14 @@ var hasSeen := false;
 var lastPos;
 
 @onready var randomPos = Vector3(randf_range(-20,20),position.y,randf_range(-20,20));
-@onready var wanderTimer := 20.0;
+@onready var wanderTimer := 60.0;
 
 # Para dibujar la línea
 var line_mesh_instance: MeshInstance3D
 var line_material: StandardMaterial3D
 
 func _ready():
+	currentSpeed = patrolSpeed
 	# Crear la línea
 	_create_debug_line()
 	randomPos = NavigationServer3D.map_get_closest_point(navRegion.get_navigation_map(),randomPos)
@@ -93,6 +96,7 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.lerp(direction * currentSpeed, delta*10)
 	
 	move_and_slide()
+	
 	# Actualizar la línea debug en cada frame
 	_draw_debug_line()
 
@@ -100,13 +104,7 @@ func _physics_process(delta: float) -> void:
 
 func Chase():
 	look_at(target.global_transform.origin)
-	#var currentLocation = global_transform.origin
-	#var nextLocation = navAgent.get_next_path_position();
-	#var nextVelocity = (nextLocation - currentLocation).normalized() * currentSpeed 
-		#
-	#velocity = velocity.move_toward(nextVelocity, 0.2)
 	_target_position(target)
-	#move_and_slide();
 
 func wandering(delta):
 	look_at(global_transform.origin + velocity)
