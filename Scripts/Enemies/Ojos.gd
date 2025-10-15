@@ -4,7 +4,11 @@ extends BasicEnemy
 @onready var isOnCamera := false;
 var player_raycast : RayCast3D
 
+var isBeingSee := false;
+var timeToKill := 5.0;
+
 func _ready() -> void:
+	timeToKill = 5.0
 	navAgent= $NavigationAgent3D
 	Detector = $Detector
 	super._ready()
@@ -13,15 +17,16 @@ func _ready() -> void:
 	if target:
 		player_raycast = target.visionDirection
 
-func _physics_process(delta: float) -> void:
-	
+func _process(delta: float) -> void:
 	var is_actually_visible = isOnCamera and is_directly_visible_to_player()
 	
 	if is_actually_visible:
-		target.LookingEyes(true)
-	else:
-		target.LookingEyes(false)
+		timeToKill = timeToKill - 1 * delta
 	
+	if timeToKill <= 0:
+		target.LoseGame();
+
+func _physics_process(delta: float) -> void:
 	if(!is_on_floor()):
 		velocity.y = velocity.y + -9.8 * delta;
 	else:
@@ -67,7 +72,6 @@ func is_directly_visible_to_player() -> bool:
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 	isOnCamera = true
-
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	isOnCamera = false
