@@ -12,6 +12,9 @@ var candyPoints = 0;
 @onready var collision := $CollisionShape3D
 
 
+var inInteractZone;
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
@@ -23,6 +26,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			neck.rotate_y(-event.relative.x * 0.001)
 			camera.rotate_x(-event.relative.y * 0.001)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("interact") and inInteractZone != null:
+		inInteractZone.Interact()
 
 func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("leftward","rightward","forward","backward");
@@ -37,13 +44,31 @@ func _physics_process(delta: float) -> void:
 		
 		
 	if(!is_on_floor()):
-		velocity.y = -9.8;
+		velocity.y = velocity.y + -9.8 * delta;
+	else:
+		velocity.y = 0;
 	
 	move_and_slide();
-
+	
+	
 
 func _on_collision_sensor_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Candy"):
 		candyPoints += body.GetPoints();
 		candyText.text = "Candy: " + str(candyPoints);
 		body.queue_free();
+	
+	if body.is_in_group("Enemy") and body.class_name != "Eyes":
+		LoseGame()
+	
+
+func _on_collision_sensor_area_entered(area: Area3D) -> void:
+	if area.get_parent_node_3d().is_in_group("Interactable"):
+		inInteractZone = area.get_parent_node_3d();
+
+func _on_collision_sensor_area_exited(area: Area3D) -> void:
+	if area.get_parent_node_3d().is_in_group("Interactable"):
+		inInteractZone = null;
+
+func LoseGame() -> void:
+	$"../LoseScreen".GameOver();
