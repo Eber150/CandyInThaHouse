@@ -22,6 +22,8 @@ func _process(delta: float) -> void:
 	
 	if is_actually_visible:
 		timeToKill = timeToKill - 1 * delta
+	else:
+		timeToKill = 5.0
 	
 	if timeToKill <= 0:
 		target.LoseGame();
