@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://3wj37m0k4vae"]
+
+[ext_resource type="Texture2D" uid="uid://bxox1vgteb6ai" path="res://TrenchBroom/Textures/Puertas_1.png" id="1_1awx6"]
+
+[resource]
+albedo_texture = ExtResource("1_1awx6")
+metallic_specular = 0.0
+texture_filter = 2

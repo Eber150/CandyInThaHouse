@@ -1,12 +1,36 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=3 format=3 uid="uid://b7uue4rubx1dd"]
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=7 format=3 uid="uid://b7uue4rubx1dd"]
 
 [ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_6fx7s"]
 [ext_resource type="Script" uid="uid://drlmgulwbjwqu" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_t0cmg"]
+[ext_resource type="PackedScene" uid="uid://cjygrk015pvav" path="res://SceneNodes/player.tscn" id="2_jflhh"]
+[ext_resource type="Script" uid="uid://cxsqwtsqd8w33" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="3_1nkq8"]
+[ext_resource type="Script" uid="uid://dh6vh5v5p8uf3" path="res://Scripts/Player/player.gd" id="4_ao13m"]
+
+[sub_resource type="Resource" id="Resource_b5yef"]
+script = ExtResource("3_1nkq8")
+scene_file = ExtResource("2_jflhh")
+script_class = ExtResource("4_ao13m")
+apply_rotation_on_map_build = true
+apply_scale_on_map_build = true
+classname = "Player_Spawn"
+description = ""
+func_godot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {}
+class_property_descriptions = {}
+auto_apply_to_matching_node_properties = false
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+name_property = ""
+metadata/_custom_type_script = "uid://cxsqwtsqd8w33"
 
 [resource]
 script = ExtResource("1_t0cmg")
 target_map_editor = 1
 fgd_name = "CandysInThaHouse"
 base_fgd_files = Array[Resource]([ExtResource("1_6fx7s")])
-entity_definitions = Array[Resource]([])
+entity_definitions = Array[Resource]([SubResource("Resource_b5yef")])
 metadata/_custom_type_script = "uid://drlmgulwbjwqu"
