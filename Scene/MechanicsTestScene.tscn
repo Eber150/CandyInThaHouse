@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ccpjh0qgdtyt6"]
+[gd_scene load_steps=31 format=3 uid="uid://ccpjh0qgdtyt6"]
 
 [ext_resource type="PackedScene" uid="uid://cjygrk015pvav" path="res://SceneNodes/player.tscn" id="1_pyhkc"]
 [ext_resource type="Script" uid="uid://150jc8dfsslb" path="res://Scripts/Candy/Candy.gd" id="2_1bbh4"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dik88wsguwsf7" path="res://Scripts/UIScreen/LoseScreen.gd" id="6_qsy2s"]
 [ext_resource type="Script" uid="uid://brfl4yiic3g5a" path="res://Scripts/Interactables/Glasses.gd" id="7_50b36"]
 [ext_resource type="AudioStream" uid="uid://0xa0y4ejm0hq" path="res://Sounds/music/Tema Principal.wav" id="8_50b36"]
-[ext_resource type="PackedScene" uid="uid://doawch71o4t6q" path="res://SceneNodes/angel.tscn" id="8_c2qtn"]
+[ext_resource type="Script" uid="uid://btv0s3sn3f7v5" path="res://Scripts/Enemies/Ojos.gd" id="9_c2qtn"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jiluu"]
 vertices = PackedVector3Array(-48.65, -1.08255, -14.9, -27.05, -1.08255, -14.9, -25.7, -1.08255, -17.6, -4.1, -1.08255, -17.6, -2.75, -1.08255, -14.9, -1.4, -1.08255, -48.65, -48.65, -1.08255, -48.65, -2.75, -1.08255, 4, 16.15, -1.08255, 4, 17.5, -1.08255, 6.7, 48.55, -1.08255, 6.7, 48.55, -1.08255, -48.65, -8.15, -1.08255, 6.7, -8.15, -1.08255, -13.55, -17.6, -1.08255, -12.2, 1.3, -1.08255, 48.55, 2.65, -1.08255, 9.4, -5.45, -1.08255, 9.4, -48.65, -1.08255, 48.55, 16.15, -1.08255, 9.4, 48.55, -1.08255, 48.55)
@@ -65,6 +65,13 @@ data = PackedVector3Array(0, 1, 0.5, 0.049, 1, 0.4976, 0, 0.6, 0.5, 0.049, 1, 0.
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vgm2k"]
 size = Vector3(0.208527, 0.44397, 0.327637)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vgm2k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_85kgu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmiod"]
+size = Vector3(28.5357, 1, 19.7319)
 
 [node name="MechanicsTestScene" type="Node3D"]
 
@@ -316,9 +323,31 @@ stream = ExtResource("8_50b36")
 volume_db = -20.0
 autoplay = true
 
-[node name="Angel" parent="." node_paths=PackedStringArray("target", "navRegion") instance=ExtResource("8_c2qtn")]
+[node name="Ojos" type="CharacterBody3D" parent="." node_paths=PackedStringArray("target", "navRegion")]
+script = ExtResource("9_c2qtn")
+chaseSpeed = 2.0
+patrolSpeed = 2.0
 target = NodePath("../player2")
 navRegion = NodePath("../NavigationRegion3D")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ojos"]
+mesh = SubResource("CapsuleMesh_vgm2k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ojos"]
+shape = SubResource("CapsuleShape3D_85kgu")
+
+[node name="Detector" type="Area3D" parent="Ojos"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ojos/Detector"]
+shape = SubResource("BoxShape3D_wmiod")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Ojos"]
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Ojos"]
+
 [connection signal="pressed" from="PaperInterface/Button" to="PaperInterface" method="_on_button_pressed"]
 [connection signal="pressed" from="LoseScreen/Button" to="LoseScreen" method="_on_button_pressed"]
+[connection signal="body_entered" from="Ojos/Detector" to="Ojos" method="_on_detector_body_entered"]
+[connection signal="body_exited" from="Ojos/Detector" to="Ojos" method="_on_detector_body_exited"]
+[connection signal="screen_entered" from="Ojos/VisibleOnScreenNotifier3D" to="Ojos" method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="Ojos/VisibleOnScreenNotifier3D" to="Ojos" method="_on_visible_on_screen_notifier_3d_screen_exited"]

@@ -9,12 +9,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wmiod"]
 size = Vector3(28.5357, 1, 19.7319)
 
-[node name="Angel" type="CharacterBody3D" node_paths=PackedStringArray("target", "navRegion") groups=["Enemy"]]
+[node name="Angel" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_dy6gp")
 chaseSpeed = 4.0
 patrolSpeed = 3.0
-target = NodePath("")
-navRegion = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_vgm2k")

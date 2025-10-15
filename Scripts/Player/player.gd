@@ -11,7 +11,13 @@ var candyPoints = 0;
 @onready var visionDirection := $Neck/Camera3D/RayCast3D;
 @onready var collision := $CollisionShape3D
 
+@onready var isLookingEyes := false;
+@onready var counterToDeath := 5.0;
+
 var inInteractZone;
+
+func _ready() -> void:
+	counterToDeath = 5.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -50,6 +56,13 @@ func _physics_process(delta: float) -> void:
 	
 	
 
+func _process(delta: float) -> void:
+	if isLookingEyes:
+		counterToDeath = counterToDeath - 1 * delta
+		print(counterToDeath)
+	
+	if counterToDeath <= 0:
+		$"../LoseScreen".GameOver();
 
 func _on_collision_sensor_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Candy"):
@@ -57,16 +70,17 @@ func _on_collision_sensor_body_entered(body: Node3D) -> void:
 		candyText.text = "Candy: " + str(candyPoints);
 		body.queue_free();
 	
-	if body.is_in_group("Enemy"):
+	if body.is_in_group("Enemy") and body.class_name != "Eyes":
 		$"../LoseScreen".GameOver();
 	
-
 
 func _on_collision_sensor_area_entered(area: Area3D) -> void:
 	if area.get_parent_node_3d().is_in_group("Interactable"):
 		inInteractZone = area.get_parent_node_3d();
 
-
 func _on_collision_sensor_area_exited(area: Area3D) -> void:
 	if area.get_parent_node_3d().is_in_group("Interactable"):
 		inInteractZone = null;
+
+func LookingEyes(isLooking : bool):
+	isLookingEyes = isLooking
