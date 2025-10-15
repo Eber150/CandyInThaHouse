@@ -8,9 +8,9 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_m7pdq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fipui"]
-size = Vector3(1, 1.85034, 1.06592)
+size = Vector3(1.65955, 1.85034, 1.43311)
 
-[node name="player" type="CharacterBody3D"]
+[node name="player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -51,7 +51,7 @@ texture = ExtResource("2_6t5aa")
 [node name="CollisionSensor" type="Area3D" parent="." groups=["Candy"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionSensor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0311279, 0.000732422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00506592, -0.0311279, -0.00244111)
 shape = SubResource("BoxShape3D_fipui")
 
 [node name="Control" type="Control" parent="."]
@@ -71,4 +71,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Candy: 0"
 
+[connection signal="area_entered" from="CollisionSensor" to="." method="_on_collision_sensor_area_entered"]
+[connection signal="area_exited" from="CollisionSensor" to="." method="_on_collision_sensor_area_exited"]
 [connection signal="body_entered" from="CollisionSensor" to="." method="_on_collision_sensor_body_entered"]
