@@ -1,11 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bajir2vbavlfn"]
+[gd_scene load_steps=8 format=3 uid="uid://bajir2vbavlfn"]
 
 [ext_resource type="Script" uid="uid://bhq3l1n3nqwq4" path="res://Scripts/Enemies/Ghost.gd" id="1_xbanr"]
+[ext_resource type="ArrayMesh" uid="uid://ivk4f2m1imoj" path="res://TrenchBroom/Models/Ghost.obj" id="2_154ld"]
 [ext_resource type="AudioStream" uid="uid://bk2sde64wl0iu" path="res://Sounds/fx/Fantasma.wav" id="2_xbanr"]
+[ext_resource type="Texture2D" uid="uid://bs0k85avflpgq" path="res://TrenchBroom/Textures/Ghost.png" id="3_3yvd7"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_50b36"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vp2ea"]
+albedo_texture = ExtResource("3_3yvd7")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_c2qtn"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hiouh"]
+radius = 0.877668
+height = 4.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_50b36"]
 size = Vector3(28.5357, 1, 19.7319)
@@ -14,14 +19,17 @@ size = Vector3(28.5357, 1, 19.7319)
 script = ExtResource("1_xbanr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_50b36")
+mesh = ExtResource("2_154ld")
+surface_material_override/0 = SubResource("StandardMaterial3D_vp2ea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_c2qtn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.43697, 0)
+shape = SubResource("CapsuleShape3D_hiouh")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_xbanr")
-volume_db = 22.4
+attenuation_model = 2
+volume_db = 3.0
 autoplay = true
 max_distance = 25.0
 

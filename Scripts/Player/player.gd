@@ -58,7 +58,7 @@ func _on_collision_sensor_body_entered(body: Node3D) -> void:
 		candyText.text = "Candy: " + str(candyPoints);
 		body.queue_free();
 	
-	if body.is_in_group("Enemy") and body.class_name != "Eyes":
+	if body.is_in_group("Enemy"):
 		LoseGame()
 	
 
