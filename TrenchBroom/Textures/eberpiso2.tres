@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://vjmr2ubpi3pi"]
+
+[ext_resource type="Texture2D" uid="uid://ckbtakxdn8d2d" path="res://TrenchBroom/Textures/eberpiso2.png" id="1_ml831"]
+
+[resource]
+albedo_texture = ExtResource("1_ml831")
+metallic_specular = 0.0
+texture_filter = 2
