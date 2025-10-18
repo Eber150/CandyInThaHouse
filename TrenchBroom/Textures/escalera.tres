@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c3c5h7sq6grhn"]
+
+[ext_resource type="Texture2D" uid="uid://dsrnk2cao6ivd" path="res://TrenchBroom/Textures/escalera.png" id="1_axatr"]
+
+[resource]
+albedo_texture = ExtResource("1_axatr")
+metallic_specular = 0.0
+texture_filter = 2
