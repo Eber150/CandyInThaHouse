@@ -50,6 +50,7 @@ texture = ExtResource("2_6t5aa")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Neck/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0281904, 0)
+visible = false
 light_color = Color(1, 0.966376, 0.787041, 1)
 light_energy = 16.0
 spot_range = 97.209
