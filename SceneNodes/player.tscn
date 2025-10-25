@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjygrk015pvav"]
+[gd_scene load_steps=8 format=3 uid="uid://cjygrk015pvav"]
 
 [ext_resource type="Script" uid="uid://dh6vh5v5p8uf3" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dbuw6qk1y1f18" path="res://images/crossHair.png" id="2_6t5aa"]
+[ext_resource type="Shader" uid="uid://flilrho3reap" path="res://Materials/noise.gdshader" id="3_6y4e5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4msq1"]
 
@@ -9,6 +10,10 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fipui"]
 size = Vector3(1.65955, 1.85034, 1.43311)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6y4e5"]
+shader = ExtResource("3_6y4e5")
+shader_parameter/noise_intensity = 0.05
 
 [node name="player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
@@ -78,6 +83,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Candy: 0"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_6y4e5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.00392157)
 
 [connection signal="area_entered" from="CollisionSensor" to="." method="_on_collision_sensor_area_entered"]
 [connection signal="area_exited" from="CollisionSensor" to="." method="_on_collision_sensor_area_exited"]
