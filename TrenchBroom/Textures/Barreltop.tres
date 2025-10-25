@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://db1rmyxrqlt2v"]
+
+[ext_resource type="Texture2D" uid="uid://jcv0od2css00" path="res://TrenchBroom/Textures/Barreltop.png" id="1_y8ri6"]
+
+[resource]
+albedo_texture = ExtResource("1_y8ri6")
+metallic_specular = 0.0
+texture_filter = 2
