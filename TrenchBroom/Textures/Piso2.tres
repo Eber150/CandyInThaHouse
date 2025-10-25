@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dwpfm46gsyype"]
+
+[ext_resource type="Texture2D" uid="uid://706j3v0kjh2m" path="res://TrenchBroom/Textures/Piso2.png" id="1_42tuj"]
+[ext_resource type="Texture2D" uid="uid://ccs32fy4u1tp8" path="res://TrenchBroom/Pbr/Piso2Rough.png" id="2_elipp"]
+[ext_resource type="Texture2D" uid="uid://bra2b50tftklc" path="res://TrenchBroom/Pbr/piso2NormalMap.png" id="2_m8pxu"]
+
+[resource]
+albedo_texture = ExtResource("1_42tuj")
+metallic_specular = 0.0
+roughness = 0.14
+roughness_texture = ExtResource("2_elipp")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 1.01
+normal_texture = ExtResource("2_m8pxu")
+rim = 0.1
+rim_tint = 0.27
+clearcoat = 0.0
+clearcoat_roughness = 0.27
+texture_filter = 2
