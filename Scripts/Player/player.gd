@@ -14,7 +14,7 @@ var candyPoints = 0;
 @onready var playerFxs := $PlayerFXs;
 var lastPosition;
 
-var inInteractZone;
+var interactZone;
 
 func _ready() -> void:
 	lastPosition = position;
@@ -32,8 +32,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact") and inInteractZone != null:
-		inInteractZone.Interact()
+	if Input.is_action_just_pressed("interact") and interactZone != null:
+		interactZone.Interact()
 
 func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("leftward","rightward","forward","backward");
@@ -76,11 +76,12 @@ func _on_collision_sensor_body_entered(body: Node3D) -> void:
 
 func _on_collision_sensor_area_entered(area: Area3D) -> void:
 	if area.get_parent_node_3d().is_in_group("Interactable"):
-		inInteractZone = area.get_parent_node_3d();
+		interactZone = area.get_parent_node_3d();
 
 func _on_collision_sensor_area_exited(area: Area3D) -> void:
 	if area.get_parent_node_3d().is_in_group("Interactable"):
-		inInteractZone = null;
+		interactZone = null;
 
 func LoseGame() -> void:
 	$"../LoseScreen".GameOver();
+	$CanvasLayer.hide()
