@@ -1,3 +1,4 @@
+class_name  Glasses
 extends Interactable
 
 @onready var ghost = $"../Ghost"
