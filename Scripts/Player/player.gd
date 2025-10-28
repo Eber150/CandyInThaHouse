@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-
-const SPEED = 2.2;
+const SPEED = 5;
+const DISTANCE_STEP = 0.9;
 
 var candyPoints = 0;
 @onready var candyText := $Control/Label
@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		lastPosition = position
 	else:
 		velocity.y = 0;
-		if(position.distance_to(lastPosition) >= 0.85):
+		if(position.distance_to(lastPosition) >= DISTANCE_STEP):
 			StepSound();
 	
 	move_and_slide();

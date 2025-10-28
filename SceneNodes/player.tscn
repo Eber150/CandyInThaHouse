@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjygrk015pvav"]
+[gd_scene load_steps=14 format=3 uid="uid://cjygrk015pvav"]
 
 [ext_resource type="Script" uid="uid://dh6vh5v5p8uf3" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dbuw6qk1y1f18" path="res://images/crossHair.png" id="2_6t5aa"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bq80rtbxqe111" path="res://Sounds/fx/paso2.wav" id="3_hfvip"]
 [ext_resource type="AudioStream" uid="uid://jsxl8xn3mcq6" path="res://Sounds/fx/paso3.wav" id="4_xu5jw"]
 [ext_resource type="AudioStream" uid="uid://dfd1pdnykwsao" path="res://Sounds/fx/paso4.wav" id="5_ywhmn"]
+[ext_resource type="AudioStream" uid="uid://0xa0y4ejm0hq" path="res://Sounds/music/Tema Principal.wav" id="8_hfvip"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4msq1"]
 
@@ -109,6 +110,20 @@ color = Color(1, 1, 1, 0.00392157)
 
 [node name="PlayerFXs" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_pcnws")
+bus = &"Steps"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_hfvip")
+autoplay = true
+bus = &"Music"
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music2"
+
+[node name="Music3" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music3"
 
 [connection signal="area_entered" from="CollisionSensor" to="." method="_on_collision_sensor_area_entered"]
 [connection signal="area_exited" from="CollisionSensor" to="." method="_on_collision_sensor_area_exited"]

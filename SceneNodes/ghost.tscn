@@ -32,6 +32,7 @@ attenuation_model = 2
 volume_db = 3.0
 autoplay = true
 max_distance = 25.0
+bus = &"Ghost"
 
 [node name="Detector" type="Area3D" parent="."]
 
