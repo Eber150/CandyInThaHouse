@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 2;
+const SPEED = 3;
 const DISTANCE_STEP = 0.9;
 
 var candyPoints = 0;
