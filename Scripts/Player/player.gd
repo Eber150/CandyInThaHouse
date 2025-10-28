@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-
-const SPEED = 6.0;
+const SPEED = 2;
+const DISTANCE_STEP = 0.9;
 
 var candyPoints = 0;
 @onready var candyText := $Control/Label
@@ -11,9 +11,13 @@ var candyPoints = 0;
 @onready var visionDirection := $Neck/Camera3D/RayCast3D;
 @onready var collision := $CollisionShape3D
 
+@onready var playerFxs := $PlayerFXs;
+var lastPosition;
 
-var inInteractZone;
+var interactZone;
 
+func _ready() -> void:
+	lastPosition = position;
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -28,8 +32,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact") and inInteractZone != null:
-		inInteractZone.Interact()
+	if Input.is_action_just_pressed("interact") and interactZone != null:
+		interactZone.Interact()
 
 func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("leftward","rightward","forward","backward");
@@ -38,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	if(direction):
 		velocity.x = direction.x * SPEED;
 		velocity.z = direction.z * SPEED;
+		
 	else:
 		velocity.x = move_toward(velocity.x,0,SPEED);
 		velocity.z = move_toward(velocity.z,0, SPEED);
@@ -45,12 +50,19 @@ func _physics_process(delta: float) -> void:
 		
 	if(!is_on_floor()):
 		velocity.y = velocity.y + -9.8 * delta;
+		lastPosition = position
 	else:
 		velocity.y = 0;
+		if(position.distance_to(lastPosition) >= DISTANCE_STEP):
+			StepSound();
 	
 	move_and_slide();
 	
-	
+
+func StepSound() -> void:
+	if(!playerFxs.playing):
+		playerFxs.play()
+		lastPosition = position;
 
 func _on_collision_sensor_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Candy"):
@@ -58,17 +70,18 @@ func _on_collision_sensor_body_entered(body: Node3D) -> void:
 		candyText.text = "Candy: " + str(candyPoints);
 		body.queue_free();
 	
-	if body.is_in_group("Enemy"):
+	if body.is_in_group("Enemy") and body.get_class() != "Eyes":
 		LoseGame()
 	
 
 func _on_collision_sensor_area_entered(area: Area3D) -> void:
 	if area.get_parent_node_3d().is_in_group("Interactable"):
-		inInteractZone = area.get_parent_node_3d();
+		interactZone = area.get_parent_node_3d();
 
 func _on_collision_sensor_area_exited(area: Area3D) -> void:
 	if area.get_parent_node_3d().is_in_group("Interactable"):
-		inInteractZone = null;
+		interactZone = null;
 
 func LoseGame() -> void:
 	$"../LoseScreen".GameOver();
+	$CanvasLayer.hide()

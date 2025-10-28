@@ -1,3 +1,4 @@
+class_name Zombie
 extends BasicEnemy
 
 func _ready() -> void:

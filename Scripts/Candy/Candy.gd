@@ -1,3 +1,4 @@
+class_name Candy
 extends Node3D
 
 @export var points:int;

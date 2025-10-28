@@ -1,3 +1,4 @@
+class_name Angel
 extends BasicEnemy
 
 @onready var isOnCamera := false;

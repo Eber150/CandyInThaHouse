@@ -1,3 +1,4 @@
+class_name  Paper
 extends Interactable
 
 @onready var paperInterface = $"../PaperInterface"

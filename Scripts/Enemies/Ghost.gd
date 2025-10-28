@@ -1,3 +1,4 @@
+class_name Ghost
 extends BasicEnemy
 
 func _ready() -> void:
