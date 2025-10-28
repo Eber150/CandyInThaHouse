@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://jg726ckfiido"]
+
+[ext_resource type="Script" uid="uid://c03tohrn8b3cv" path="res://Scripts/UIScreen/PapeInterface.gd" id="1_ew4lb"]
+[ext_resource type="Texture2D" uid="uid://cloucvp6hv0h" path="res://images/Button Background.png" id="2_eo1hq"]
+
+[node name="PaperInterface" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchor_left = 0.269
+anchor_top = 0.097
+anchor_right = 0.731
+anchor_bottom = 0.903
+offset_left = 0.111969
+offset_top = 0.143997
+offset_right = -0.112
+offset_bottom = -0.144043
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ew4lb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eo1hq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.417
+anchor_top = 0.943
+anchor_right = 0.59
+anchor_bottom = 1.0
+offset_left = 0.155991
+offset_top = -0.246002
+offset_right = 0.119995
+grow_horizontal = 2
+grow_vertical = 0
+text = "Close"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
