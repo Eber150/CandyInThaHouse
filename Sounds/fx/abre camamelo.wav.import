@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1fv1ofne4d24"
+path="res://.godot/imported/abre camamelo.wav-13723ed1ca3387aeb498856a7ad73beb.sample"
+
+[deps]
+
+source_file="res://Sounds/fx/abre camamelo.wav"
+dest_files=["res://.godot/imported/abre camamelo.wav-13723ed1ca3387aeb498856a7ad73beb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

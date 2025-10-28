@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://nxxys1ab6xnx"]
+
+[ext_resource type="Texture2D" uid="uid://bg6wj2nffu0du" path="res://TrenchBroom/Textures/vino.png" id="1_7wr4o"]
+[ext_resource type="Texture2D" uid="uid://ct4n1o82w8cn" path="res://TrenchBroom/Pbr/vinoRough.png" id="2_p0uqo"]
+
+[resource]
+albedo_texture = ExtResource("1_7wr4o")
+metallic_specular = 0.17
+roughness_texture = ExtResource("2_p0uqo")
+refraction_enabled = true
+texture_filter = 2
