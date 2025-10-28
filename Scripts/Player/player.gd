@@ -11,7 +11,7 @@ var candyPoints = 0;
 @onready var visionDirection := $Neck/Camera3D/RayCast3D;
 @onready var collision := $CollisionShape3D
 
-@onready var flashlight := $Neck/Camera3D/SpotLight3D;
+@onready var flashlight := $Neck/Camera3D/Flashlight;
 
 @onready var playerFxs := $PlayerFXs;
 var lastPosition;
@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and interactZone != null:
 		interactZone.Interact()
 	if Input.is_action_just_pressed("flashlight"):
-		TurnOnOffFlashLight();
+		flashlight.TurnOnOffFlashLight()
 
 func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("leftward","rightward","forward","backward");
@@ -89,9 +89,3 @@ func _on_collision_sensor_area_exited(area: Area3D) -> void:
 func LoseGame() -> void:
 	$"../LoseScreen".GameOver();
 	$CanvasLayer.hide()
-
-func TurnOnOffFlashLight() -> void:
-	if(visible):
-		visible = false
-	else:
-		visible = true

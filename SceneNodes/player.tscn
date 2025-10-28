@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjygrk015pvav"]
+[gd_scene load_steps=15 format=3 uid="uid://cjygrk015pvav"]
 
 [ext_resource type="Script" uid="uid://dh6vh5v5p8uf3" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dbuw6qk1y1f18" path="res://images/crossHair.png" id="2_6t5aa"]
 [ext_resource type="AudioStream" uid="uid://e7jvddu1g4va" path="res://Sounds/fx/paso1.wav" id="2_pcnws"]
 [ext_resource type="Shader" uid="uid://flilrho3reap" path="res://Materials/noise.gdshader" id="3_6y4e5"]
 [ext_resource type="AudioStream" uid="uid://bq80rtbxqe111" path="res://Sounds/fx/paso2.wav" id="3_hfvip"]
+[ext_resource type="Script" uid="uid://devotrl3tq4r" path="res://Scripts/Player/flashlight.gd" id="3_xu5jw"]
 [ext_resource type="AudioStream" uid="uid://jsxl8xn3mcq6" path="res://Sounds/fx/paso3.wav" id="4_xu5jw"]
 [ext_resource type="AudioStream" uid="uid://dfd1pdnykwsao" path="res://Sounds/fx/paso4.wav" id="5_ywhmn"]
 [ext_resource type="AudioStream" uid="uid://0xa0y4ejm0hq" path="res://Sounds/music/Tema Principal.wav" id="8_hfvip"]
@@ -65,18 +66,33 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_6t5aa")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Neck/Camera3D"]
+[node name="Flashlight" type="SpotLight3D" parent="Neck/Camera3D" node_paths=PackedStringArray("BatteryBar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0281904, 0)
+visible = false
 light_color = Color(1, 0.966376, 0.787041, 1)
 light_energy = 16.0
 spot_range = 97.209
 spot_angle = 18.2439
+script = ExtResource("3_xu5jw")
+BatteryBar = NodePath("../../../Control/ProgressBar")
 
 [node name="CollisionSensor" type="Area3D" parent="." groups=["Candy"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionSensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00506592, -0.0311279, -0.00244111)
 shape = SubResource("BoxShape3D_fipui")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_6y4e5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.00392157)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -95,17 +111,14 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Candy: 0"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_6y4e5")
-anchors_preset = 15
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0.00392157)
+offset_left = -154.0
+offset_bottom = 43.0
+grow_horizontal = 0
 
 [node name="PlayerFXs" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_pcnws")
