@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5it61a8cgn6g"]
+
+[ext_resource type="Script" uid="uid://uwlfb3u0nbls" path="res://Scripts/Interactables/paper.gd" id="1_hfd2t"]
+[ext_resource type="Texture2D" uid="uid://cloucvp6hv0h" path="res://images/Button Background.png" id="2_l712x"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ir5mi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsy2s"]
+albedo_texture = ExtResource("2_l712x")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ir5mi"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qsy2s"]
+size = Vector3(0.794373, 0.132484, 0.697998)
+
+[node name="Paper" type="StaticBody3D" groups=["Interactable"]]
+script = ExtResource("1_hfd2t")
+textToDisplay = "Texto relleno.... 
+bla bla bla.... 
+contexto.... 
+No dejes que el ser malvado te toque"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ir5mi")
+surface_material_override/0 = SubResource("StandardMaterial3D_qsy2s")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_ir5mi")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177307, 0.0631981, -0.00305176)
+shape = SubResource("BoxShape3D_qsy2s")
