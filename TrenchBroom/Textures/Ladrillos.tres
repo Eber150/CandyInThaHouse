@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dmx53uxlp4au8"]
+
+[ext_resource type="Texture2D" uid="uid://rwfkykmal8t2" path="res://TrenchBroom/Textures/Ladrillos.png" id="1_ftorp"]
+
+[resource]
+albedo_texture = ExtResource("1_ftorp")
+metallic_specular = 0.0
+texture_filter = 2
