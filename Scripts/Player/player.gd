@@ -12,6 +12,7 @@ var candyPoints = 0;
 @onready var collision := $CollisionShape3D
 
 @onready var flashlight := $Neck/Camera3D/Flashlight;
+@onready var flashAnim := $Neck/Camera3D/Flashlight2/AnimationPlayer
 
 @onready var playerFxs := $PlayerFXs;
 var lastPosition;
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	if(direction):
 		velocity.x = direction.x * SPEED;
 		velocity.z = direction.z * SPEED;
-		
+		flashAnim.play("flashlightMove")
 	else:
 		velocity.x = move_toward(velocity.x,0,SPEED);
 		velocity.z = move_toward(velocity.z,0, SPEED);
@@ -59,6 +60,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0;
 		if(position.distance_to(lastPosition) >= DISTANCE_STEP):
 			StepSound();
+			
 	
 	move_and_slide();
 	
