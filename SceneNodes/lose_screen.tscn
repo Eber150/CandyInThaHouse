@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2bg4vkterlcj"]
+[gd_scene load_steps=4 format=3 uid="uid://c2bg4vkterlcj"]
 
 [ext_resource type="Script" uid="uid://dik88wsguwsf7" path="res://Scripts/UIScreen/LoseScreen.gd" id="1_bkqf3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qsy2s"]
 font_size = 87
+
+[sub_resource type="LabelSettings" id="LabelSettings_bkqf3"]
+font_size = 31
 
 [node name="LoseScreen" type="Control"]
 process_mode = 3
@@ -57,6 +60,44 @@ offset_right = 104.5
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Reset"
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reiniciar"
+label_settings = SubResource("LabelSettings_bkqf3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = 51.5
+offset_right = 104.5
+offset_bottom = 126.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_bkqf3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

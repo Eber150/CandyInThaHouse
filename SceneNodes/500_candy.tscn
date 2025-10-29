@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwifmttwy8ssd"]
+
+[ext_resource type="Script" uid="uid://150jc8dfsslb" path="res://Scripts/Candy/Candy.gd" id="1_mstyt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jsye8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsye8"]
+size = Vector3(0.19751, 0.203125, 0.221191)
+
+[node name="500Candy" type="StaticBody3D" groups=["Candy"]]
+script = ExtResource("1_mstyt")
+points = 500
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("CompressedTexture2D_jsye8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610352, -0.000976563, 0.00610352)
+shape = SubResource("BoxShape3D_jsye8")

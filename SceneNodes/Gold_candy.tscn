@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://dl8h2fu5ggljs"]
+
+[ext_resource type="Script" uid="uid://b0t7tuailx77v" path="res://Scripts/Candy/GoldCandy.gd" id="1_3wpq4"]
+[ext_resource type="Texture2D" uid="uid://bbg8a0juhyrus" path="res://sprites/Candy/caramelo_dorado.png" id="2_3egdr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsye8"]
+size = Vector3(0.19751, 0.203125, 0.221191)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro8iw"]
+atlas = ExtResource("2_3egdr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5dqa"]
+atlas = ExtResource("2_3egdr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkqh7"]
+atlas = ExtResource("2_3egdr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuesi"]
+atlas = ExtResource("2_3egdr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64gxo"]
+atlas = ExtResource("2_3egdr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgdrl"]
+atlas = ExtResource("2_3egdr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vivbb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro8iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5dqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkqh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuesi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64gxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgdrl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GoldCandy" type="StaticBody3D" groups=["Candy"]]
+script = ExtResource("1_3wpq4")
+points = 1000
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.000610352, -0.000976563, 0.00610352)
+shape = SubResource("BoxShape3D_jsye8")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_vivbb")
+autoplay = "default"
+frame_progress = 0.249217

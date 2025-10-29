@@ -1,6 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn8tbhatxdi3p"]
+[gd_scene load_steps=6 format=3 uid="uid://cn8tbhatxdi3p"]
 
 [ext_resource type="Script" uid="uid://vqi5uhppf8xg" path="res://Scripts/UIScreen/main_menu.gd" id="1_rrxvj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c6fb4"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_6o0c3"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_d4yab"]
+font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_rrxvj"]
 font_size = 46
@@ -39,13 +48,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -45.0
-offset_top = -106.0
-offset_right = 45.0
-offset_bottom = -64.0
+offset_left = -79.5
+offset_top = -144.5
+offset_right = 79.5
+offset_bottom = -71.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainButton/Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Jugar"
+label_settings = SubResource("LabelSettings_c6fb4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Instructions" type="Button" parent="MainButton"]
 layout_mode = 1
@@ -54,13 +74,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -45.0
-offset_top = -21.0
-offset_right = 45.0
-offset_bottom = 21.0
+offset_left = -79.5
+offset_top = -36.5
+offset_right = 79.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainButton/Instructions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Botones"
+label_settings = SubResource("LabelSettings_6o0c3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Exit" type="Button" parent="MainButton"]
 layout_mode = 1
@@ -69,13 +100,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -45.0
-offset_top = 55.0
-offset_right = 45.0
-offset_bottom = 97.0
+offset_left = -79.5
+offset_top = 71.5
+offset_right = 79.5
+offset_bottom = 144.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainButton/Exit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Salir"
+label_settings = SubResource("LabelSettings_d4yab")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="IntructionMenu" type="Control" parent="."]
 visible = false
