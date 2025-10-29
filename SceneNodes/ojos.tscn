@@ -1,13 +1,127 @@
-[gd_scene load_steps=5 format=3 uid="uid://npe22mta2k"]
+[gd_scene load_steps=19 format=3 uid="uid://npe22mta2k"]
 
 [ext_resource type="Script" uid="uid://btv0s3sn3f7v5" path="res://Scripts/Enemies/Ojos.gd" id="1_gqtyr"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_vgm2k"]
+[ext_resource type="Texture2D" uid="uid://b0r3goha1tknv" path="res://sprites/spritesheets/monstruo_ojos.png" id="2_y51hh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_85kgu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wmiod"]
 size = Vector3(28.5357, 1, 19.7319)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4oxp"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(0, 0, 121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di1vi"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(121, 0, 121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1l01"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(242, 0, 121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfebh"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(363, 0, 121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpliy"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(484, 0, 121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wcql"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(605, 0, 121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcuur"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(726, 0, 121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kahp"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(847, 0, 121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arh1r"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(968, 0, 121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0540"]
+atlas = ExtResource("2_y51hh")
+region = Rect2(1089, 0, 121, 121)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1luvu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4oxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di1vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1l01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfebh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpliy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wcql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcuur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kahp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arh1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0540")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_y51hh"]
+resource_name = "floating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.259045, 0), Vector3(0, 0.196585, 0), Vector3(0, 0.259045, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q4oxp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.259045, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_di1vi"]
+_data = {
+&"RESET": SubResource("Animation_q4oxp"),
+&"floating": SubResource("Animation_y51hh")
+}
 
 [node name="Ojos" type="CharacterBody3D"]
 script = ExtResource("1_gqtyr")
@@ -36,6 +150,18 @@ shape = SubResource("BoxShape3D_wmiod")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1.10174, 0, 0, 0, 1.11582, 0, 0, 0, 1, 0, 0.259045, 0)
+sprite_frames = SubResource("SpriteFrames_1luvu")
+autoplay = "default"
+frame_progress = 0.437792
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_di1vi")
+}
+autoplay = "floating"
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
