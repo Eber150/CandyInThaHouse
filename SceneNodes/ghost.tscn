@@ -1,29 +1,49 @@
-[gd_scene load_steps=8 format=3 uid="uid://bajir2vbavlfn"]
+[gd_scene load_steps=10 format=3 uid="uid://bajir2vbavlfn"]
 
 [ext_resource type="Script" uid="uid://bhq3l1n3nqwq4" path="res://Scripts/Enemies/Ghost.gd" id="1_xbanr"]
-[ext_resource type="ArrayMesh" uid="uid://ivk4f2m1imoj" path="res://TrenchBroom/Models/Ghost.obj" id="2_154ld"]
 [ext_resource type="AudioStream" uid="uid://bk2sde64wl0iu" path="res://Sounds/fx/Fantasma.wav" id="2_xbanr"]
-[ext_resource type="Texture2D" uid="uid://bs0k85avflpgq" path="res://TrenchBroom/Textures/Ghost.png" id="3_3yvd7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vp2ea"]
-albedo_texture = ExtResource("3_3yvd7")
+[ext_resource type="Texture2D" uid="uid://b1uwenawnggcq" path="res://sprites/spritesheets/fantasma.png" id="3_pown0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hiouh"]
-radius = 0.877668
-height = 4.0
+radius = 0.519569
+height = 1.98684
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_50b36"]
 size = Vector3(28.5357, 1, 19.7319)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pown0"]
+atlas = ExtResource("3_pown0")
+region = Rect2(0, 0, 28, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_154ld"]
+atlas = ExtResource("3_pown0")
+region = Rect2(28, 0, 28, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yvd7"]
+atlas = ExtResource("3_pown0")
+region = Rect2(56, 0, 28, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vp2ea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pown0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_154ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yvd7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.75
+}]
+
 [node name="Ghost" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_xbanr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("2_154ld")
-surface_material_override/0 = SubResource("StandardMaterial3D_vp2ea")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.43697, 0)
 shape = SubResource("CapsuleShape3D_hiouh")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
@@ -40,6 +60,12 @@ bus = &"Ghost"
 shape = SubResource("BoxShape3D_50b36")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1.14278, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 0, 0)
+pixel_size = 0.03
+sprite_frames = SubResource("SpriteFrames_vp2ea")
+frame_progress = 0.833
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]

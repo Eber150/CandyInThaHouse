@@ -1,6 +1,7 @@
 class_name Ghost
 extends BasicEnemy
 
+
 func _ready() -> void:
 	visible = false;
 	navAgent= $NavigationAgent3D
@@ -8,6 +9,7 @@ func _ready() -> void:
 	#target= $"../player2"
 	#navRegion = $"../NavigationRegion3D"
 	super._ready()
+	$AnimatedSprite3D.play("default")
 
 func MakeVisible() -> void:
 	visible = true;
