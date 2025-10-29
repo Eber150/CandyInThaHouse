@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diu1dhpl0beil"
-path.s3tc="res://.godot/imported/Zombie.png-346e8df8e419dc5a35714d365677ffad.s3tc.ctex"
+uid="uid://b1uwenawnggcq"
+path.s3tc="res://.godot/imported/fantasma.png-e034a62aa9a8f0c846acaec49c779430.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/spritesheets/Zombie.png"
-dest_files=["res://.godot/imported/Zombie.png-346e8df8e419dc5a35714d365677ffad.s3tc.ctex"]
+source_file="res://sprites/spritesheets/fantasma.png"
+dest_files=["res://.godot/imported/fantasma.png-e034a62aa9a8f0c846acaec49c779430.s3tc.ctex"]
 
 [params]
 
