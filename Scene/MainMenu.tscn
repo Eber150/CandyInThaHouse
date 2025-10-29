@@ -1,0 +1,161 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn8tbhatxdi3p"]
+
+[ext_resource type="Script" uid="uid://vqi5uhppf8xg" path="res://Scripts/UIScreen/main_menu.gd" id="1_rrxvj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rrxvj"]
+font_size = 46
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rrxvj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainButton" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.173
+anchor_right = 0.806
+anchor_bottom = 1.0
+offset_left = -0.296005
+offset_right = -0.512085
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="MainButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -106.0
+offset_right = 45.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jugar"
+
+[node name="Instructions" type="Button" parent="MainButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -21.0
+offset_right = 45.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Botones"
+
+[node name="Exit" type="Button" parent="MainButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 55.0
+offset_right = 45.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Salir"
+
+[node name="IntructionMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -259.0
+offset_right = 259.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="IntructionMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.843137)
+
+[node name="Button" type="Button" parent="IntructionMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.5
+offset_top = -60.0
+offset_right = 43.5
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Cerrar"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="IntructionMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -178.0
+offset_right = 203.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+
+WASD	 	movimiento
+
+mouse 	camara
+
+F 				linterna
+
+E 				interactuar"
+
+[node name="Label" type="Label" parent="IntructionMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 29.0
+offset_right = 115.0
+offset_bottom = 91.0
+grow_horizontal = 2
+text = "Botones"
+label_settings = SubResource("LabelSettings_rrxvj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MainButton/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainButton/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="MainButton/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="IntructionMenu/Button" to="." method="_on_instruction_button_pressed"]
