@@ -86,6 +86,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_q4oxp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.259045, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_y51hh"]
 resource_name = "floating"
 loop_mode = 1
@@ -100,21 +115,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0.259045, 0), Vector3(0, 0.196585, 0), Vector3(0, 0.259045, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_q4oxp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.259045, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_di1vi"]
@@ -151,6 +151,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_di1vi")
 }
 autoplay = "floating"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.476713, 0.3772, 0.92, 1)
+light_energy = 3.22
+light_size = 0.462
+light_specular = 6.403
+omni_range = 55.336
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
