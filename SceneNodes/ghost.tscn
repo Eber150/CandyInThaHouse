@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bajir2vbavlfn"]
+[gd_scene load_steps=13 format=3 uid="uid://bajir2vbavlfn"]
 
 [ext_resource type="Script" uid="uid://bhq3l1n3nqwq4" path="res://Scripts/Enemies/Ghost.gd" id="1_xbanr"]
 [ext_resource type="AudioStream" uid="uid://bk2sde64wl0iu" path="res://Sounds/fx/Fantasma.wav" id="2_xbanr"]
@@ -40,6 +40,43 @@ animations = [{
 "speed": 3.75
 }]
 
+[sub_resource type="Animation" id="Animation_pown0"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0685614, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_154ld"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3yvd7"]
+_data = {
+&"RESET": SubResource("Animation_154ld"),
+&"idle": SubResource("Animation_pown0")
+}
+
 [node name="Ghost" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_xbanr")
 
@@ -66,6 +103,13 @@ transform = Transform3D(1.14278, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 0, 0)
 pixel_size = 0.03
 sprite_frames = SubResource("SpriteFrames_vp2ea")
 frame_progress = 0.833
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite3D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_3yvd7")
+}
+autoplay = "idle"
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
