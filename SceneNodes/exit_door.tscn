@@ -1,0 +1,182 @@
+[gd_scene load_steps=11 format=3 uid="uid://du21d3rw52lkk"]
+
+[ext_resource type="Script" uid="uid://bnra685ofg3is" path="res://Scripts/Interactables/exit_door.gd" id="1_31g3a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yug7o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64hrp"]
+size = Vector3(0.323181, 1.80182, 1.98828)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxg8q"]
+size = Vector3(0.66626, 1.80237, 2.01331)
+
+[sub_resource type="LabelSettings" id="LabelSettings_31g3a"]
+font_size = 61
+
+[sub_resource type="LabelSettings" id="LabelSettings_yug7o"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_64hrp"]
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_pxg8q"]
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_r2yix"]
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_jwjk5"]
+font_size = 45
+
+[node name="ExitDoor" type="StaticBody3D" groups=["Interactable"]]
+script = ExtResource("1_31g3a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 1.8, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_yug7o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000396729, 0.00253296, -0.00976563)
+shape = SubResource("BoxShape3D_64hrp")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00646973, 0.00372314, 0.00616455)
+shape = SubResource("BoxShape3D_pxg8q")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Titulo" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 36.0
+offset_right = 260.0
+offset_bottom = 136.0
+grow_horizontal = 2
+text = "Saliste de la mansión"
+label_settings = SubResource("LabelSettings_31g3a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CantidadCaramelos" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -168.5
+offset_right = 109.5
+offset_bottom = -111.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Caramelos: 0 / 11270"
+label_settings = SubResource("LabelSettings_yug7o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Final1" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -52.5
+offset_right = 211.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "El peor halloween de tu vida, casi no tenes caramelos para disfrutar"
+label_settings = SubResource("LabelSettings_64hrp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Final2" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -52.5
+offset_right = 211.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Un halloween normal con caramelos suficientes para toda la semana"
+label_settings = SubResource("LabelSettings_pxg8q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Final3" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -52.5
+offset_right = 211.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "El mejor halloween de tu vida.  Conseguiste caramelos hasta fin de año."
+label_settings = SubResource("LabelSettings_r2yix")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menu" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.5
+offset_top = -119.0
+offset_right = 114.5
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control/menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_jwjk5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/menu" to="." method="_on_menu_pressed"]

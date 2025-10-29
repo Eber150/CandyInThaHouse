@@ -5,10 +5,9 @@ extends BasicEnemy
 var player_raycast : RayCast3D
 
 var isBeingSee := false;
-var timeToKill := 5.0;
+var timeToKill := 1.0;
 
 func _ready() -> void:
-	timeToKill = 5.0
 	navAgent= $NavigationAgent3D
 	Detector = $Detector
 	super._ready()
@@ -23,32 +22,14 @@ func _process(delta: float) -> void:
 	if is_actually_visible:
 		timeToKill = timeToKill - 1 * delta
 	else:
-		timeToKill = 5.0
+		timeToKill = 1.0
 	
 	if timeToKill <= 0:
 		target.LoseGame();
 
 func _physics_process(delta: float) -> void:
-	if(!is_on_floor()):
-		velocity.y = velocity.y + -9.8 * delta;
-	else:
-		velocity.y = 0;
-		
-	if isChasing:
-		Chase()
-		currentSpeed = chaseSpeed
-	else:
-		currentSpeed = patrolSpeed
-		wandering(delta)
+	look_at(target.position)
 	
-	var direction = navAgent.get_next_path_position() - global_position
-	direction = direction.normalized()
-	velocity = velocity.lerp(direction * currentSpeed, delta * 10)
-	
-	move_and_slide()
-	
-	# Actualizar la línea debug en cada frame
-	_draw_debug_line()
 
 func is_directly_visible_to_player() -> bool:
 	
