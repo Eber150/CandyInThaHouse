@@ -77,7 +77,7 @@ func _draw_debug_line():
 
 
 func _physics_process(delta: float) -> void:
-	
+	look_at(target.global_transform.origin)
 	if(!is_on_floor()):
 		velocity.y = velocity.y + -9.8 * delta;
 	else:
@@ -94,7 +94,6 @@ func _physics_process(delta: float) -> void:
 	direction = direction.normalized()
 	
 	velocity = velocity.lerp(direction * currentSpeed, delta*10)
-	
 	move_and_slide()
 	
 	# Actualizar la línea debug en cada frame
@@ -103,11 +102,9 @@ func _physics_process(delta: float) -> void:
 
 
 func Chase():
-	look_at(target.global_transform.origin)
 	_target_position(target)
 
 func wandering(delta):
-	look_at(global_transform.origin + velocity)
 	hasSeen = false;
 	navAgent.target_position = randomPos;
 	if abs(randomPos.x - global_position.x ) <= 5 and abs(randomPos.z - global_position.z) <=5 or wanderTimer <= 0:
