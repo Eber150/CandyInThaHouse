@@ -128,6 +128,17 @@ script = ExtResource("1_gqtyr")
 chaseSpeed = 2.0
 patrolSpeed = 2.0
 
+[node name="OjosLuz" type="OmniLight3D" parent="."]
+light_color = Color(0.716898, 0.0265312, 0.931105, 1)
+light_energy = 13.713
+light_size = 0.48
+light_specular = 1.48
+shadow_enabled = true
+omni_range = 15.109
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_vgm2k")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_85kgu")
 
