@@ -35,6 +35,7 @@ Candy=""
 Enemy=""
 Player=""
 Interactable=""
+Ghosts=""
 
 [input]
 
