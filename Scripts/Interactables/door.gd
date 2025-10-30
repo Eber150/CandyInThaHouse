@@ -3,7 +3,9 @@ extends Interactable
 
 @onready var openAnim := $Node3D/AnimationPlayer
 @onready var openSound := $AudioStreamPlayer2D
-
+var isOpen := false;
 func Interact():
-	openAnim.play("open");
-	openSound.play();
+	if !isOpen:
+		isOpen = true;
+		openAnim.play("open");
+		openSound.play();
