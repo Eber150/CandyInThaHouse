@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn8tbhatxdi3p"]
+[gd_scene load_steps=9 format=3 uid="uid://cn8tbhatxdi3p"]
 
 [ext_resource type="Script" uid="uid://vqi5uhppf8xg" path="res://Scripts/UIScreen/main_menu.gd" id="1_rrxvj"]
+[ext_resource type="Texture2D" uid="uid://ckurcn7tqir3g" path="res://images/menu_del_juego_.png" id="2_c6fb4"]
+[ext_resource type="AudioStream" uid="uid://bs064bu5h1dll" path="res://Sounds/music/Intro.wav" id="3_6o0c3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c6fb4"]
 font_size = 36
@@ -11,8 +13,11 @@ font_size = 36
 [sub_resource type="LabelSettings" id="LabelSettings_d4yab"]
 font_size = 36
 
+[sub_resource type="LabelSettings" id="LabelSettings_o3nbu"]
+font_size = 60
+
 [sub_resource type="LabelSettings" id="LabelSettings_rrxvj"]
-font_size = 46
+font_size = 60
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -23,23 +28,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rrxvj")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_c6fb4")
 
 [node name="MainButton" type="Control" parent="."]
 layout_mode = 1
-anchor_left = 0.173
-anchor_right = 0.806
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.296005
-offset_right = -0.512085
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -599.0
+offset_top = -740.0
+offset_right = -72.0
+offset_bottom = -95.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Play" type="Button" parent="MainButton"]
 layout_mode = 1
@@ -48,10 +58,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -79.5
-offset_top = -144.5
-offset_right = 79.5
-offset_bottom = -71.5
+offset_left = -161.5
+offset_top = -259.5
+offset_right = 163.5
+offset_bottom = -110.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -74,10 +84,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -79.5
-offset_top = -36.5
-offset_right = 79.5
-offset_bottom = 36.5
+offset_left = -162.5
+offset_top = -74.5
+offset_right = 162.5
+offset_bottom = 74.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -100,10 +110,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -79.5
-offset_top = 71.5
-offset_right = 79.5
-offset_bottom = 144.5
+offset_left = -162.5
+offset_top = 111.5
+offset_right = 162.5
+offset_bottom = 260.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -122,17 +132,17 @@ vertical_alignment = 1
 [node name="IntructionMenu" type="Control" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -259.0
-offset_top = -259.0
-offset_right = 259.0
-offset_bottom = 259.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -568.0
+offset_top = -617.0
+offset_right = -84.0
+offset_bottom = -53.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ColorRect" type="ColorRect" parent="IntructionMenu"]
 layout_mode = 1
@@ -150,13 +160,24 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -43.5
-offset_top = -60.0
-offset_right = 43.5
-offset_bottom = -18.0
+offset_left = -103.5
+offset_top = -120.0
+offset_right = 103.5
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Label" type="Label" parent="IntructionMenu/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Cerrar"
+label_settings = SubResource("LabelSettings_o3nbu")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="IntructionMenu"]
 layout_mode = 1
@@ -168,19 +189,19 @@ anchor_bottom = 0.5
 offset_left = -203.0
 offset_top = -178.0
 offset_right = 203.0
-offset_bottom = 135.0
+offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "
+W/A/S/D	 	movimiento
 
-WASD	 	movimiento
+mouse 		camara
 
-mouse 	camara
+F 					linterna
 
-F 				linterna
-
-E 				interactuar"
+E 					interactuar"
 
 [node name="Label" type="Label" parent="IntructionMenu"]
 layout_mode = 1
@@ -196,6 +217,11 @@ text = "Botones"
 label_settings = SubResource("LabelSettings_rrxvj")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6o0c3")
+autoplay = true
+bus = &"util1"
 
 [connection signal="pressed" from="MainButton/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainButton/Instructions" to="." method="_on_instructions_pressed"]

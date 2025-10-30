@@ -10,9 +10,8 @@ size = Vector3(0.310287, 2.49107, 2.96436)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pxg8q"]
 size = Vector3(0.66626, 2.49686, 3.03983)
 
-[node name="ExitDoor" type="StaticBody3D" node_paths=PackedStringArray("winScreen") groups=["Interactable"]]
+[node name="ExitDoor" type="StaticBody3D" groups=["Interactable"]]
 script = ExtResource("1_31g3a")
-winScreen = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
