@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bbq4ryqak2bkv"]
+[gd_scene load_steps=13 format=4 uid="uid://bbq4ryqak2bkv"]
 
 [ext_resource type="Material" uid="uid://cpiy64jinyjhh" path="res://TrenchBroom/Textures/trims.tres" id="1_fog80"]
+[ext_resource type="Script" uid="uid://b44we76m48roq" path="res://Scripts/Interactables/door.gd" id="1_xr37f"]
 [ext_resource type="Material" uid="uid://3wj37m0k4vae" path="res://TrenchBroom/Textures/Puertas_1.tres" id="2_xr37f"]
+[ext_resource type="AudioStream" uid="uid://b2gp4uw6oonj7" path="res://Sounds/fx/cerrojo abre chilla y cierra puerta.wav" id="4_0ks31"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0ks31"]
 _surfaces = [{
@@ -37,16 +39,82 @@ indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_skr4e"]
 data = PackedVector3Array(0.25, 1.5, -0.75, -0.25, 1.5, -0.75, -0.25, -1.5, -0.75, 0.25, 1.5, -0.75, -0.25, -1.5, -0.75, 0.25, -1.5, -0.75, -0.25, -1.5, 0.75, 0.25, -1.5, 0.75, 0.25, -1.5, -0.75, -0.25, -1.5, 0.75, 0.25, -1.5, -0.75, -0.25, -1.5, -0.75, -0.25, 1.5, 0.75, -0.25, 1.5, -0.75, 0.25, 1.5, -0.75, -0.25, 1.5, 0.75, 0.25, 1.5, -0.75, 0.25, 1.5, 0.75, 0.25, -1.5, 0.75, -0.25, -1.5, 0.75, -0.25, 1.5, 0.75, 0.25, -1.5, 0.75, -0.25, 1.5, 0.75, 0.25, 1.5, 0.75, -0.25, -1.5, 0.75, -0.25, -1.5, -0.75, -0.25, 1.5, -0.75, -0.25, -1.5, 0.75, -0.25, 1.5, -0.75, -0.25, 1.5, 0.75, 0.25, 1.5, 0.75, 0.25, 1.5, -0.75, 0.25, -1.5, -0.75, 0.25, 1.5, 0.75, 0.25, -1.5, -0.75, 0.25, -1.5, 0.75)
 
-[node name="Door" type="Node3D"]
+[sub_resource type="Animation" id="Animation_xr37f"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
 
-[node name="entity_41_func_geo" type="StaticBody3D" parent="."]
+[sub_resource type="Animation" id="Animation_0ks31"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hk5nd"]
+_data = {
+&"RESET": SubResource("Animation_0ks31"),
+&"open": SubResource("Animation_xr37f")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ks31"]
+size = Vector3(1.07544, 2.99072, 1.4939)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hk5nd"]
+
+[node name="Door" type="StaticBody3D" groups=["Interactable"]]
+script = ExtResource("1_xr37f")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.778137)
+
+[node name="entity_41_func_geo" type="StaticBody3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.778137)
 collision_mask = 0
 
-[node name="entity_41_mesh_instance" type="MeshInstance3D" parent="entity_41_func_geo"]
+[node name="entity_41_mesh_instance" type="MeshInstance3D" parent="Node3D/entity_41_func_geo"]
 mesh = SubResource("ArrayMesh_0ks31")
 
-[node name="entity_41_occluder_instance" type="OccluderInstance3D" parent="entity_41_func_geo"]
+[node name="entity_41_occluder_instance" type="OccluderInstance3D" parent="Node3D/entity_41_func_geo"]
 occluder = SubResource("ArrayOccluder3D_hk5nd")
 
-[node name="entity_41_collision_shape" type="CollisionShape3D" parent="entity_41_func_geo"]
+[node name="entity_41_collision_shape" type="CollisionShape3D" parent="Node3D/entity_41_func_geo"]
 shape = SubResource("ConcavePolygonShape3D_skr4e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_hk5nd")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0ks31")
+bus = &"Door"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00109863, 0.000732422, -0.0133057)
+shape = SubResource("BoxShape3D_0ks31")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hk5nd")
+disabled = true
