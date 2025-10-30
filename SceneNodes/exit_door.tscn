@@ -5,25 +5,25 @@
 [sub_resource type="BoxMesh" id="BoxMesh_yug7o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_64hrp"]
-size = Vector3(0.323181, 1.80182, 1.98828)
+size = Vector3(0.310287, 2.49107, 2.96436)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pxg8q"]
-size = Vector3(0.66626, 1.80237, 2.01331)
+size = Vector3(0.66626, 2.49686, 3.03983)
 
 [node name="ExitDoor" type="StaticBody3D" node_paths=PackedStringArray("winScreen") groups=["Interactable"]]
 script = ExtResource("1_31g3a")
 winScreen = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 1.8, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("BoxMesh_yug7o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000396729, 0.00253296, -0.00976563)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00222012, -0.00664937, 0.00170875)
 shape = SubResource("BoxShape3D_64hrp")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00646973, 0.00372314, 0.00616455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00646973, -0.00468424, 0.00996447)
 shape = SubResource("BoxShape3D_pxg8q")
