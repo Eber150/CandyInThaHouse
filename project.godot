@@ -98,3 +98,7 @@ flashlight={
 3d_physics/layer_2="Scene"
 3d_physics/layer_3="Candy"
 3d_physics/layer_4="Enemy"
+
+[rendering]
+
+scaling_3d/scale=0.5
