@@ -1,8 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cn1s386pxdsl8"]
 
 [ext_resource type="Script" uid="uid://150jc8dfsslb" path="res://Scripts/Candy/Candy.gd" id="1_7siat"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jsye8"]
+[ext_resource type="Texture2D" uid="uid://be8ln2w6v4ah2" path="res://sprites/Candy/caramelo_verde.png" id="2_xgrwl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jsye8"]
 size = Vector3(0.19751, 0.203125, 0.221191)
@@ -13,7 +12,9 @@ points = 10
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0125
-texture = SubResource("CompressedTexture2D_jsye8")
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_xgrwl")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610352, -0.000976563, 0.00610352)

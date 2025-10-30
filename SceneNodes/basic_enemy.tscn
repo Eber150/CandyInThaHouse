@@ -78,6 +78,8 @@ shape = SubResource("BoxShape3D_jiluu")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.888132, 0, 0, 0, 1, 0, 0, 0)
 pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_lr1ji")
 frame_progress = 0.907856
 
