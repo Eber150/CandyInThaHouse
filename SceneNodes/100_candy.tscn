@@ -12,8 +12,13 @@ script = ExtResource("1_sqhr5")
 points = 100
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.0175
 texture = SubResource("CompressedTexture2D_jsye8")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610352, -0.000976563, 0.00610352)
 shape = SubResource("BoxShape3D_jsye8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.99, 0.1188, 0.22044, 1)
+light_energy = 0.63

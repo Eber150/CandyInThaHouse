@@ -158,7 +158,7 @@ light_energy = 3.22
 light_size = 0.462
 light_specular = 6.403
 shadow_enabled = true
-omni_range = 20.0
+omni_range = 35.0
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
