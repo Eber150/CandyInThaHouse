@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dk7jx68ltpfyk"
+path="res://.godot/imported/FX - corriendo2 48k 24.wav-66216d62d93a975b8c3f84f1a5a511dc.sample"
+
+[deps]
+
+source_file="res://Sounds/Fx/FX - corriendo2 48k 24.wav"
+dest_files=["res://.godot/imported/FX - corriendo2 48k 24.wav-66216d62d93a975b8c3f84f1a5a511dc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

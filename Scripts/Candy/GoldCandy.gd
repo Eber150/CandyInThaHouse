@@ -7,4 +7,5 @@ func _process(delta: float) -> void:
 	look_at(get_parent().get_node("player").position);
 
 func GetPoints() -> int:
+	$AudioStreamPlayer2D.play()
 	return points;

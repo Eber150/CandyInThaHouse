@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0t6qo5h25nmh"
+path="res://.godot/imported/(MUESTRA) Musica Game Over - Bad Ending.mp3-f744d66764050aabaf57f2bd0c4905f7.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Endings/(MUESTRA) Musica Game Over - Bad Ending.mp3"
+dest_files=["res://.godot/imported/(MUESTRA) Musica Game Over - Bad Ending.mp3-f744d66764050aabaf57f2bd0c4905f7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

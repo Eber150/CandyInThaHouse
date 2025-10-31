@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv6xwyg08ubje"]
+[gd_scene load_steps=10 format=3 uid="uid://bv6xwyg08ubje"]
 
 [ext_resource type="Script" uid="uid://c4nstt4skig3b" path="res://Scripts/UIScreen/win_screen.gd" id="1_dgklu"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_31g3a"]
-font_size = 61
-
-[sub_resource type="LabelSettings" id="LabelSettings_yug7o"]
-font_size = 36
+[ext_resource type="Texture2D" uid="uid://8emgvi44gtub" path="res://images/final_bueno.png" id="2_tsg22"]
+[ext_resource type="Texture2D" uid="uid://dkrmom2ky7tcn" path="res://images/final_mejor.png" id="3_pf22j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_64hrp"]
 font_size = 31
@@ -15,7 +11,13 @@ font_size = 31
 font_size = 31
 
 [sub_resource type="LabelSettings" id="LabelSettings_r2yix"]
-font_size = 31
+font_size = 51
+
+[sub_resource type="LabelSettings" id="LabelSettings_31g3a"]
+font_size = 65
+
+[sub_resource type="LabelSettings" id="LabelSettings_yug7o"]
+font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_jwjk5"]
 font_size = 45
@@ -29,48 +31,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dgklu")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Titulo" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -260.0
-offset_top = 36.0
-offset_right = 260.0
-offset_bottom = 136.0
-grow_horizontal = 2
-text = "Saliste de la mansión"
-label_settings = SubResource("LabelSettings_31g3a")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CantidadCaramelos" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.5
-offset_top = -168.5
-offset_right = 109.5
-offset_bottom = -111.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Caramelos: 0 / 11270"
-label_settings = SubResource("LabelSettings_yug7o")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Final1" type="Label" parent="."]
 visible = false
@@ -110,6 +70,16 @@ label_settings = SubResource("LabelSettings_pxg8q")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Final3Background" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tsg22")
+
 [node name="Final3" type="Label" parent="."]
 visible = false
 layout_mode = 1
@@ -118,16 +88,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = -52.5
-offset_right = 211.0
-offset_bottom = 52.5
+offset_left = -190.5
+offset_top = -152.5
+offset_right = 962.5
+offset_bottom = 152.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Un halloween normal con caramelos suficientes para toda la semana"
+text = "Un halloween normal con 
+caramelos suficientes para toda la semana"
 label_settings = SubResource("LabelSettings_r2yix")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Final4Background" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_pf22j")
 
 [node name="Final4" type="Label" parent="."]
 visible = false
@@ -137,14 +115,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = -52.5
-offset_right = 211.0
-offset_bottom = 52.5
+offset_left = -190.5
+offset_top = -152.5
+offset_right = 876.5
+offset_bottom = 152.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "El mejor halloween de tu vida.  Conseguiste caramelos hasta fin de año."
+text = "El mejor halloween de tu vida.  
+Conseguiste caramelos hasta fin de año."
 label_settings = SubResource("LabelSettings_r2yix")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -902.0
+offset_top = 35.0
+offset_right = -241.0
+offset_bottom = 135.0
+grow_horizontal = 0
+text = "Saliste de la mansión"
+label_settings = SubResource("LabelSettings_31g3a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CantidadCaramelos" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -770.0
+offset_top = 139.0
+offset_right = -410.0
+offset_bottom = 196.0
+grow_horizontal = 0
+text = "Caramelos: 0 / 11270"
+label_settings = SubResource("LabelSettings_yug7o")
 horizontal_alignment = 1
 vertical_alignment = 1
 

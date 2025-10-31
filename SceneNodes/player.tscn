@@ -1,15 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjygrk015pvav"]
+[gd_scene load_steps=18 format=3 uid="uid://cjygrk015pvav"]
 
 [ext_resource type="Script" uid="uid://dh6vh5v5p8uf3" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dbuw6qk1y1f18" path="res://images/crossHair.png" id="2_6t5aa"]
-[ext_resource type="AudioStream" uid="uid://e7jvddu1g4va" path="res://Sounds/fx/paso1.wav" id="2_pcnws"]
 [ext_resource type="Shader" uid="uid://flilrho3reap" path="res://Materials/noise.gdshader" id="3_6y4e5"]
-[ext_resource type="AudioStream" uid="uid://bq80rtbxqe111" path="res://Sounds/fx/paso2.wav" id="3_hfvip"]
 [ext_resource type="Script" uid="uid://devotrl3tq4r" path="res://Scripts/Player/flashlight.gd" id="3_xu5jw"]
-[ext_resource type="AudioStream" uid="uid://jsxl8xn3mcq6" path="res://Sounds/fx/paso3.wav" id="4_xu5jw"]
 [ext_resource type="PackedScene" uid="uid://cj0q35pkbrkos" path="res://models/Flashlight.glb" id="4_ywhmn"]
-[ext_resource type="AudioStream" uid="uid://dfd1pdnykwsao" path="res://Sounds/fx/paso4.wav" id="5_ywhmn"]
-[ext_resource type="AudioStream" uid="uid://0xa0y4ejm0hq" path="res://Sounds/music/Tema Principal.wav" id="8_hfvip"]
+[ext_resource type="AudioStream" uid="uid://b01oci0crgvbh" path="res://Sounds/Fx/FX - paso1 48k 24.wav" id="6_xu5jw"]
+[ext_resource type="AudioStream" uid="uid://duq1x7tvlbpav" path="res://Sounds/Fx/FX - paso2 48k 24.wav" id="7_ywhmn"]
+[ext_resource type="AudioStream" uid="uid://6pw82qsp34g7" path="res://Sounds/Fx/FX - paso3 48k 24.wav" id="8_3o6j0"]
+[ext_resource type="AudioStream" uid="uid://2od1y7apuicq" path="res://Sounds/Fx/FX - paso4 48k 24.wav" id="9_jfd7f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4msq1"]
 
@@ -60,10 +59,10 @@ shader_parameter/noise_intensity = 0.05
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pcnws"]
 streams_count = 4
-stream_0/stream = ExtResource("2_pcnws")
-stream_1/stream = ExtResource("3_hfvip")
-stream_2/stream = ExtResource("4_xu5jw")
-stream_3/stream = ExtResource("5_ywhmn")
+stream_0/stream = ExtResource("6_xu5jw")
+stream_1/stream = ExtResource("7_ywhmn")
+stream_2/stream = ExtResource("8_3o6j0")
+stream_3/stream = ExtResource("9_jfd7f")
 
 [node name="player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
@@ -170,13 +169,10 @@ stream = SubResource("AudioStreamRandomizer_pcnws")
 bus = &"Steps"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_hfvip")
 autoplay = true
-bus = &"Music"
 
 [node name="Music2" type="AudioStreamPlayer" parent="."]
 autoplay = true
-bus = &"Music2"
 
 [node name="Music3" type="AudioStreamPlayer" parent="."]
 autoplay = true

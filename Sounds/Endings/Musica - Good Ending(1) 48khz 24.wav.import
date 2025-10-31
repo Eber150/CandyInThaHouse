@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bongakuh6okg3"
+path="res://.godot/imported/Musica - Good Ending(1) 48khz 24.wav-e8f9d6f394769be024e169883fc80d05.sample"
+
+[deps]
+
+source_file="res://Sounds/Endings/Musica - Good Ending(1) 48khz 24.wav"
+dest_files=["res://.godot/imported/Musica - Good Ending(1) 48khz 24.wav-e8f9d6f394769be024e169883fc80d05.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

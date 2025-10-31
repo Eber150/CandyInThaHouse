@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const SPEED = 5;
-const DISTANCE_STEP = 0.9;
+const SPEED = 3;
+const DISTANCE_STEP = 1;
 
 var candyPoints = 0;
 @onready var candyText := $Control/Label
