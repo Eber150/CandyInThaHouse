@@ -58,7 +58,7 @@ size = Vector3(1.65955, 1.85034, 1.43311)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6y4e5"]
 shader = ExtResource("3_6y4e5")
 shader_parameter/noise_intensity = 0.05
-shader_parameter/noise_amplitude = 4.0
+shader_parameter/noise_amplitude = 3.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_3o6j0"]
 font_size = 51
