@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://devotrl3tq4r" path="res://Scripts/Player/flashlight.gd" id="3_xu5jw"]
 [ext_resource type="PackedScene" uid="uid://cj0q35pkbrkos" path="res://models/Flashlight.glb" id="4_ywhmn"]
 [ext_resource type="AudioStream" uid="uid://b01oci0crgvbh" path="res://Sounds/Fx/FX - paso1 48k 24.wav" id="6_xu5jw"]
-[ext_resource type="Texture2D" uid="uid://diuf7q4c4bxo4" path="res://sprites/Candy/candysicon.png" id="6_ywhmn"]
+[ext_resource type="Texture2D" uid="uid://barg2sps63cg7" path="res://sprites/Candy/candysicon.png" id="6_ywhmn"]
 [ext_resource type="Texture2D" uid="uid://c1cqwegh6dgaf" path="res://sprites/others/rayo.png" id="7_3o6j0"]
 [ext_resource type="AudioStream" uid="uid://duq1x7tvlbpav" path="res://Sounds/Fx/FX - paso2 48k 24.wav" id="7_ywhmn"]
 [ext_resource type="AudioStream" uid="uid://6pw82qsp34g7" path="res://Sounds/Fx/FX - paso3 48k 24.wav" id="8_3o6j0"]
@@ -163,6 +163,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Label"]
+texture_filter = 1
+texture_repeat = 1
 position = Vector2(-61, 32)
 scale = Vector2(2.14063, 2.14063)
 texture = ExtResource("6_ywhmn")
