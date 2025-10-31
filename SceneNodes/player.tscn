@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cjygrk015pvav"]
+[gd_scene load_steps=21 format=3 uid="uid://cjygrk015pvav"]
 
 [ext_resource type="Script" uid="uid://dh6vh5v5p8uf3" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dbuw6qk1y1f18" path="res://images/crossHair.png" id="2_6t5aa"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://devotrl3tq4r" path="res://Scripts/Player/flashlight.gd" id="3_xu5jw"]
 [ext_resource type="PackedScene" uid="uid://cj0q35pkbrkos" path="res://models/Flashlight.glb" id="4_ywhmn"]
 [ext_resource type="AudioStream" uid="uid://b01oci0crgvbh" path="res://Sounds/Fx/FX - paso1 48k 24.wav" id="6_xu5jw"]
+[ext_resource type="Texture2D" uid="uid://diuf7q4c4bxo4" path="res://sprites/Candy/candysicon.png" id="6_ywhmn"]
+[ext_resource type="Texture2D" uid="uid://c1cqwegh6dgaf" path="res://sprites/others/rayo.png" id="7_3o6j0"]
 [ext_resource type="AudioStream" uid="uid://duq1x7tvlbpav" path="res://Sounds/Fx/FX - paso2 48k 24.wav" id="7_ywhmn"]
 [ext_resource type="AudioStream" uid="uid://6pw82qsp34g7" path="res://Sounds/Fx/FX - paso3 48k 24.wav" id="8_3o6j0"]
 [ext_resource type="AudioStream" uid="uid://2od1y7apuicq" path="res://Sounds/Fx/FX - paso4 48k 24.wav" id="9_jfd7f"]
@@ -56,6 +58,10 @@ size = Vector3(1.65955, 1.85034, 1.43311)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6y4e5"]
 shader = ExtResource("3_6y4e5")
 shader_parameter/noise_intensity = 0.05
+shader_parameter/noise_amplitude = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3o6j0"]
+font_size = 51
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pcnws"]
 streams_count = 4
@@ -148,35 +154,37 @@ grow_horizontal = 2
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Candy: 0"
+offset_left = 124.0
+offset_right = 177.0
+offset_bottom = 77.0
+text = "0"
+label_settings = SubResource("LabelSettings_3o6j0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Label"]
+position = Vector2(-61, 32)
+scale = Vector2(2.14063, 2.14063)
+texture = ExtResource("6_ywhmn")
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -154.0
-offset_bottom = 43.0
+offset_left = -222.0
+offset_bottom = 62.0
 grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/ProgressBar"]
+position = Vector2(142, 34)
+scale = Vector2(0.0369999, 0.0369999)
+texture = ExtResource("7_3o6j0")
 
 [node name="PlayerFXs" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_pcnws")
 bus = &"Steps"
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-autoplay = true
-
-[node name="Music2" type="AudioStreamPlayer" parent="."]
-autoplay = true
-
-[node name="Music3" type="AudioStreamPlayer" parent="."]
-autoplay = true
-bus = &"Music3"
 
 [connection signal="area_entered" from="CollisionSensor" to="." method="_on_collision_sensor_area_entered"]
 [connection signal="area_exited" from="CollisionSensor" to="." method="_on_collision_sensor_area_exited"]

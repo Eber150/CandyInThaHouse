@@ -1,18 +1,23 @@
-[gd_scene load_steps=9 format=4 uid="uid://cn8tbhatxdi3p"]
+[gd_scene load_steps=10 format=4 uid="uid://cn8tbhatxdi3p"]
 
 [ext_resource type="Script" uid="uid://vqi5uhppf8xg" path="res://Scripts/UIScreen/main_menu.gd" id="1_rrxvj"]
 [ext_resource type="Texture2D" uid="uid://ckurcn7tqir3g" path="res://images/menu_del_juego_.png" id="2_c6fb4"]
+[ext_resource type="FontFile" uid="uid://dfbl7adohumr5" path="res://Fonts/Night Blood.ttf" id="3_6o0c3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c6fb4"]
+font = ExtResource("3_6o0c3")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_6o0c3"]
+font = ExtResource("3_6o0c3")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_d4yab"]
+font = ExtResource("3_6o0c3")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_o3nbu"]
+font = ExtResource("3_6o0c3")
 font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_rrxvj"]
@@ -199,6 +204,7 @@ offset_right = 203.0
 offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_6o0c3")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "
@@ -206,9 +212,9 @@ W/A/S/D	 	movimiento
 
 mouse 		camara
 
-F 					linterna
+F 			linterna
 
-E 					interactuar"
+E 			interactuar"
 
 [node name="Label" type="Label" parent="IntructionMenu"]
 layout_mode = 1
