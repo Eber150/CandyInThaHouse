@@ -26,6 +26,7 @@ func _on_menu_pressed() -> void:
 func final() -> void:
 	if(player.candyPoints < 1):
 		$Final1.show();
+		$Final1Background.show();
 	elif(player.candyPoints >= 1 and player.candyPoints < 100):
 		$Final2.show();
 	elif (player.candyPoints >= 100 and player.candyPoints < 8000):
