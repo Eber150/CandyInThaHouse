@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyk5l6ex0a3am"
+path="res://.godot/imported/Musica-Tema 1 - Completo 48khz.wav-ec7c3e4fbff0b7a52c7d8821f4c2ffe2.sample"
+
+[deps]
+
+source_file="res://Sounds/Tema 1/Musica-Tema 1 - Completo 48khz.wav"
+dest_files=["res://.godot/imported/Musica-Tema 1 - Completo 48khz.wav-ec7c3e4fbff0b7a52c7d8821f4c2ffe2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

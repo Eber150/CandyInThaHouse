@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://cpiy64jinyjhh" path="res://TrenchBroom/Textures/trims.tres" id="1_fog80"]
 [ext_resource type="Script" uid="uid://b44we76m48roq" path="res://Scripts/Interactables/door.gd" id="1_xr37f"]
 [ext_resource type="Material" uid="uid://3wj37m0k4vae" path="res://TrenchBroom/Textures/Puertas_1.tres" id="2_xr37f"]
-[ext_resource type="AudioStream" uid="uid://b2gp4uw6oonj7" path="res://Sounds/fx/cerrojo abre chilla y cierra puerta.wav" id="4_0ks31"]
+[ext_resource type="AudioStream" uid="uid://c43046e0wco7d" path="res://Sounds/fx/FX - cerrojo abre chilla y cierra puerta 48k 24.wav" id="4_0ks31"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0ks31"]
 _surfaces = [{

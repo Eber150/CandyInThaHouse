@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://brysr1hi23i0s"]
+[gd_scene load_steps=30 format=3 uid="uid://brysr1hi23i0s"]
 
 [ext_resource type="PackedScene" uid="uid://cjygrk015pvav" path="res://SceneNodes/player.tscn" id="1_k1bun"]
 [ext_resource type="PackedScene" uid="uid://c5it61a8cgn6g" path="res://SceneNodes/paper.tscn" id="3_uoi77"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dws20rw3tc0v5" path="res://SceneNodes/DoubleDoor.tscn" id="15_mwybo"]
 [ext_resource type="PackedScene" uid="uid://bajir2vbavlfn" path="res://SceneNodes/ghost.tscn" id="16_dbubv"]
 [ext_resource type="PackedScene" uid="uid://bj168hgmsw38y" path="res://SceneNodes/battery.tscn" id="16_vjdr0"]
+[ext_resource type="PackedScene" uid="uid://bx51yku31m643" path="res://SceneNodes/music_manager.tscn" id="17_dbubv"]
+[ext_resource type="AudioBusLayout" uid="uid://byrwtvjar1dg3" path="res://Sounds/new_audio_bus_layout.tres" id="18_6r4qh"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vcmt1"]
 vertices = PackedVector3Array(-49.5, -0.78255, -15.25, -26.25, -0.78255, -15.25, -26, -0.78255, -16.5, -24, -0.78255, -49.5, -49.5, -0.78255, -49.5, -24, -0.78255, -16.5, -6, -0.78255, -16.5, -6, -0.78255, -49.5, -3.75, -0.78255, -16.25, -3.75, -0.78255, 5.75, 16.25, -0.78255, 5.75, 16.5, -0.78255, 6.75, 49.5, -0.78255, 6.75, 49.5, -0.78255, -49.5, -5, 9.21745, 7, 15.5, 9.21745, 7, -4.75, 9.21745, 6.5, -4.75, 9.21745, -15.5, -25.25, 9.21745, -15.5, -5, 9.21745, -15, -18, -0.78255, -13.25, -18.25, -0.78255, -14.25, -26, -0.78255, -14.25, -6, -0.78255, -14.25, -16, -0.78255, -14.25, -16.25, -0.78255, -13.25, -6, -0.78255, 7.75, -3.75, -0.78255, 49.5, -3.75, -0.78255, 8, -49.5, -0.78255, 49.5, 16.25, -0.78255, 8, 14.25, -0.78255, 49.5, 49.5, -0.78255, 49.5, 14.25, -0.78255, 8)
@@ -161,15 +163,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.0079, 0, 25.2415)
 [node name="GoldCandy" parent="." instance=ExtResource("8_wmln3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.977, 0.196688, 20.5266)
 
-[node name="WinScreen" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_vcmt1")]
-player = NodePath("../player")
+[node name="WinScreen" parent="." instance=ExtResource("12_vcmt1")]
 
 [node name="ExitDoor" parent="." node_paths=PackedStringArray("winScreen") instance=ExtResource("12_8fgcv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.74191, 0, 0)
 winScreen = NodePath("../WinScreen")
-
-[node name="Door" parent="." instance=ExtResource("14_ftq4e")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.8638, 0, 0)
 
 [node name="DoubleDoor" parent="." instance=ExtResource("15_mwybo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6985, 0, 3.39638)
@@ -189,3 +187,12 @@ chaseSpeed = 1.0
 patrolSpeed = 1.0
 target = NodePath("../player")
 navRegion = NodePath("../NavigationRegion3D")
+
+[node name="MusicManager" parent="." instance=ExtResource("17_dbubv")]
+bus = ExtResource("18_6r4qh")
+
+[node name="Door" parent="." instance=ExtResource("14_ftq4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9301, 0, -0.748783)
+
+[node name="GoldCandy2" parent="." instance=ExtResource("8_wmln3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1248, 0, 5.44157)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmgaceeqac02f"
+path="res://.godot/imported/FX - Voz Si 48khz 24.wav-7473fdb62de2bf9d2408c51c765650dc.sample"
+
+[deps]
+
+source_file="res://Sounds/Fx/FX - Voz Si 48khz 24.wav"
+dest_files=["res://.godot/imported/FX - Voz Si 48khz 24.wav-7473fdb62de2bf9d2408c51c765650dc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

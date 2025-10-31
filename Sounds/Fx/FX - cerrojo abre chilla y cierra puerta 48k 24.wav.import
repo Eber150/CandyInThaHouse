@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c43046e0wco7d"
+path="res://.godot/imported/FX - cerrojo abre chilla y cierra puerta 48k 24.wav-c4ca73607a893ef31599c5dd8b05d606.sample"
+
+[deps]
+
+source_file="res://Sounds/Fx/FX - cerrojo abre chilla y cierra puerta 48k 24.wav"
+dest_files=["res://.godot/imported/FX - cerrojo abre chilla y cierra puerta 48k 24.wav-c4ca73607a893ef31599c5dd8b05d606.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

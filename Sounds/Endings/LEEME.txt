@@ -1,0 +1,4 @@
+El archivo (Muestra) es como deberia quedar
+los 2 archivos juntos. Yo te los paso por separado
+asi podes loopear el segundo ya que el primero solo
+se tiene que reproducir una sola vez.

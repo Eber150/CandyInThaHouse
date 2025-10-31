@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6cqts2xq7iro"
+path="res://.godot/imported/Musica - Intro 48khz 24.wav-f7c0db8cfaf181baaea150481857da6b.sample"
+
+[deps]
+
+source_file="res://Sounds/Intro/Musica - Intro 48khz 24.wav"
+dest_files=["res://.godot/imported/Musica - Intro 48khz 24.wav-f7c0db8cfaf181baaea150481857da6b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

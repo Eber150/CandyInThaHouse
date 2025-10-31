@@ -2,9 +2,11 @@ extends Control
 
 
 @onready var candyAmountText := $CantidadCaramelos;
-@export var player :CharacterBody3D
+var player
 
-
+func _ready() -> void:
+	player = get_tree().get_nodes_in_group("Player")[0]
+	hide()
 
 func showWinScreen() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
@@ -28,5 +30,7 @@ func final() -> void:
 		$Final2.show();
 	elif (player.candyPoints >= 100 and player.candyPoints < 8000):
 		$Final3.show();
+		$Final3Background.show()
 	else:
 		$Final4.show();
+		$Final4Background.show();
