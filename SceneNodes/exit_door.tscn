@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://du21d3rw52lkk"]
+[gd_scene load_steps=4 format=3 uid="uid://du21d3rw52lkk"]
 
 [ext_resource type="Script" uid="uid://bnra685ofg3is" path="res://Scripts/Interactables/exit_door.gd" id="1_31g3a"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_yug7o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_64hrp"]
 size = Vector3(0.310287, 2.49107, 2.96436)
@@ -12,10 +10,6 @@ size = Vector3(0.66626, 2.49686, 3.03983)
 
 [node name="ExitDoor" type="StaticBody3D" groups=["Interactable"]]
 script = ExtResource("1_31g3a")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
-mesh = SubResource("BoxMesh_yug7o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00222012, -0.00664937, 0.00170875)

@@ -67,6 +67,8 @@ shape = SubResource("BoxShape3D_jsye8")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 pixel_size = 0.025
+alpha_cut = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_vivbb")
 autoplay = "default"
 frame_progress = 0.249217

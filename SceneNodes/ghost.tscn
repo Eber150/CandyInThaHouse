@@ -108,6 +108,8 @@ shape = SubResource("BoxShape3D_50b36")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1.14278, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 0, 0)
 pixel_size = 0.03
+alpha_cut = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_vp2ea")
 frame_progress = 0.833
 

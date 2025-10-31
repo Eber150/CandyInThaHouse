@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cn7bs3rou3lns"]
+
+[ext_resource type="Texture2D" uid="uid://c74fjsbr8wokq" path="res://TrenchBroom/Textures/arboles.png" id="1_cxvcp"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.477
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+albedo_texture = ExtResource("1_cxvcp")
+metallic_specular = 0.0
+texture_filter = 2
