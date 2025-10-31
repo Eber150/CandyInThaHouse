@@ -8,6 +8,7 @@ transparency = 1
 albedo_texture = ExtResource("2_rdnol")
 emission_enabled = true
 emission = Color(0.455642, 0.702457, 0.266179, 1)
+uv1_scale = Vector3(0.25, 0.25, 0.25)
 
 [resource]
 next_pass = SubResource("StandardMaterial3D_titbw")
