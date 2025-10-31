@@ -1,29 +1,36 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv6xwyg08ubje"]
+[gd_scene load_steps=12 format=3 uid="uid://bv6xwyg08ubje"]
 
 [ext_resource type="Script" uid="uid://c4nstt4skig3b" path="res://Scripts/UIScreen/win_screen.gd" id="1_dgklu"]
+[ext_resource type="FontFile" uid="uid://dfbl7adohumr5" path="res://Fonts/Night Blood.ttf" id="2_507xe"]
 [ext_resource type="Texture2D" uid="uid://8emgvi44gtub" path="res://images/final_bueno.png" id="2_tsg22"]
 [ext_resource type="Texture2D" uid="uid://dkrmom2ky7tcn" path="res://images/final_mejor.png" id="3_pf22j"]
+[ext_resource type="Texture2D" uid="uid://diuf7q4c4bxo4" path="res://sprites/Candy/candysicon.png" id="4_pf22j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_64hrp"]
+font = ExtResource("2_507xe")
 font_size = 31
 
 [sub_resource type="LabelSettings" id="LabelSettings_pxg8q"]
+font = ExtResource("2_507xe")
 font_size = 31
 
 [sub_resource type="LabelSettings" id="LabelSettings_r2yix"]
+font = ExtResource("2_507xe")
 font_size = 51
 
 [sub_resource type="LabelSettings" id="LabelSettings_31g3a"]
+font = ExtResource("2_507xe")
 font_size = 65
 
 [sub_resource type="LabelSettings" id="LabelSettings_yug7o"]
+font = ExtResource("2_507xe")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_jwjk5"]
+font = ExtResource("2_507xe")
 font_size = 45
 
 [node name="WinScreen" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -152,10 +159,15 @@ offset_top = 139.0
 offset_right = -410.0
 offset_bottom = 196.0
 grow_horizontal = 0
-text = "Caramelos: 0 / 11270"
+text = " 0 / 11270"
 label_settings = SubResource("LabelSettings_yug7o")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CantidadCaramelos"]
+position = Vector2(38, 28)
+scale = Vector2(2.46875, 2.46875)
+texture = ExtResource("4_pf22j")
 
 [node name="menu" type="Button" parent="."]
 process_mode = 3

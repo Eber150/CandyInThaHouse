@@ -2,14 +2,17 @@ extends SpotLight3D
 
 var isOn := false;
 
-var maxBattery := 20.0;
-var currentBattery := 20.0;
+var maxBattery := 100.0;
+var currentBattery := 100.0;
 
 @export var BatteryBar :ProgressBar;
 
 func _ready() -> void:
 	BatteryBar.max_value = maxBattery;
 	BatteryBar.value = currentBattery;
+	var sb = StyleBoxFlat.new()
+	BatteryBar.add_theme_stylebox_override("fill",sb)
+	sb.bg_color = Color("00af00")
 
 func _process(delta: float) -> void:
 	if(isOn):

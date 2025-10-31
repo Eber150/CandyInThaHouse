@@ -21,8 +21,18 @@ func _process(delta: float) -> void:
 	
 	if is_actually_visible:
 		timeToKill = timeToKill - 1 * delta
+		
+		var color_rect = target.get_node("CanvasLayer/ColorRect")
+		if color_rect.material and color_rect.material is ShaderMaterial:
+			var material = color_rect.material as ShaderMaterial
+			var new_amplitude = 3.0 + (1.0 - timeToKill) * 46.0
+			material.set_shader_parameter("noise_amplitude", new_amplitude)
 	else:
 		timeToKill = 1.0
+		var color_rect = target.get_node("CanvasLayer/ColorRect")
+		if color_rect.material and color_rect.material is ShaderMaterial:
+			var material = color_rect.material as ShaderMaterial
+			material.set_shader_parameter("noise_amplitude", 3.0)
 	
 	if timeToKill <= 0:
 		target.LoseGame();
