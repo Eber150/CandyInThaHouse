@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://hkrau8ra6kvy"]
+
+[ext_resource type="Texture2D" uid="uid://byhse2kmgvt12" path="res://TrenchBroom/Textures/cesar_laperla_20251031195820.png" id="1_cu3gy"]
+
+[resource]
+albedo_texture = ExtResource("1_cu3gy")
+metallic_specular = 0.0
+texture_filter = 2
