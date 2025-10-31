@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2bg4vkterlcj"]
+[gd_scene load_steps=5 format=3 uid="uid://c2bg4vkterlcj"]
 
 [ext_resource type="Script" uid="uid://dik88wsguwsf7" path="res://Scripts/UIScreen/LoseScreen.gd" id="1_bkqf3"]
+[ext_resource type="FontFile" uid="uid://dfbl7adohumr5" path="res://Fonts/Night Blood.ttf" id="2_kprl2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qsy2s"]
+font = ExtResource("2_kprl2")
 font_size = 87
 
 [sub_resource type="LabelSettings" id="LabelSettings_bkqf3"]
+font = ExtResource("2_kprl2")
 font_size = 31
 
 [node name="LoseScreen" type="Control"]

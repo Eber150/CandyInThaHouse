@@ -73,7 +73,7 @@ func StepSound() -> void:
 func _on_collision_sensor_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Candy"):
 		candyPoints += body.GetPoints();
-		candyText.text = "Candy: " + str(candyPoints);
+		candyText.text = str(candyPoints);
 		body.queue_free();
 	
 	if body.is_in_group("Enemy") and body.get_class() != "Eyes":
