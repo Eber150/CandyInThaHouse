@@ -2,8 +2,8 @@ extends SpotLight3D
 
 var isOn := false;
 
-var maxBattery := 100.0;
-var currentBattery := 100.0;
+var maxBattery := 75.0;
+var currentBattery := 75.0;
 
 @export var BatteryBar :ProgressBar;
 

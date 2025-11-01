@@ -27,7 +27,7 @@ var line_material: StandardMaterial3D
 func _ready():
 	currentSpeed = patrolSpeed
 	# Crear la línea
-	_create_debug_line()
+	#_create_debug_line()
 	randomPos = NavigationServer3D.map_get_closest_point(navRegion.get_navigation_map(),randomPos)
 
 func _create_debug_line():
@@ -97,7 +97,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# Actualizar la línea debug en cada frame
-	_draw_debug_line()
+	#_draw_debug_line()
 
 
 
