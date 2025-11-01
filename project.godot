@@ -37,6 +37,7 @@ Player=""
 Interactable=""
 Ghosts=""
 Eyes=""
+musicManager=""
 
 [importer_defaults]
 

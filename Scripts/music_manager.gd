@@ -6,8 +6,13 @@ var player;
 
 @export var bus : AudioBusLayout;
 
+@onready var mansionBase := $MusicGame/Base
+@onready var mansionMelodi := $MusicGame/Melody
+@onready var basementeSong := $Basement/SongBasement
+
 var maxDistance = 20;
 var minDistance = 1; 
+var isInBasement = false;
 
 func _ready() -> void:
 	AudioServer.get_bus_channels(1)
@@ -15,6 +20,8 @@ func _ready() -> void:
 	ghosts = get_tree().get_nodes_in_group("Ghosts")
 
 func _process(delta: float) -> void:
+	if isInBasement:
+		return
 	if ghosts.any(IsNear):
 		var min_distance = 999999999;
 		var closest_ghost
@@ -44,3 +51,15 @@ func compare_distance(a, b):
 	var distance_a = player.global_position.distance_to(a.global_position)
 	var distance_b = player.global_position.distance_to(b.global_position)
 	return distance_a < distance_b  # Si la distancia de 'a' es menor, devuelve verdadero
+
+func changeSound():
+	if(isInBasement):
+		basementeSong.stop()
+		mansionBase.play()
+		mansionMelodi.play()
+		isInBasement = false
+	else:
+		isInBasement = true
+		mansionBase.stop()
+		mansionMelodi.stop()
+		basementeSong.play()
