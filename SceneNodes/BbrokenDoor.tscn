@@ -1,0 +1,121 @@
+[gd_scene load_steps=13 format=4 uid="uid://dg8ryi1gxaf20"]
+
+[ext_resource type="Script" uid="uid://b44we76m48roq" path="res://Scripts/Interactables/door.gd" id="1_tdxkr"]
+[ext_resource type="Material" uid="uid://cpiy64jinyjhh" path="res://TrenchBroom/Textures/trims.tres" id="2_ytfja"]
+[ext_resource type="Material" uid="uid://3wj37m0k4vae" path="res://TrenchBroom/Textures/Puertas_1.tres" id="3_41l1q"]
+[ext_resource type="AudioStream" uid="uid://c43046e0wco7d" path="res://Sounds/Fx/FX - cerrojo abre chilla y cierra puerta 48k 24.wav" id="4_oeqy0"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tdxkr"]
+_surfaces = [{
+"aabb": AABB(-0.25, -1.5, -0.75, 0.5, 3, 1.5),
+"attribute_data": PackedByteArray("AABIwAAAUsEAAEjAAABQwQAAGMAAAFDBAAAYwAAAUsEAABbBAABQwQAAFsEAAFLBAAAcwQAAUsEAABzBAABQwQAADkEAAFDBAAAUQQAAUMEAABRBAABSwQAADkEAAFLBAAAYwAAAUsEAABjAAABQwQAASMAAAFDBAABIwAAAUsE="),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8A"),
+"material": ExtResource("2_ytfja"),
+"name": "trims",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AACAPgAAwD8AAEC/AACAvgAAwD8AAEC/AACAvgAAwL8AAEC/AACAPgAAwL8AAEC/AACAvgAAwL8AAEA/AACAPgAAwL8AAEA/AACAPgAAwL8AAEC/AACAvgAAwL8AAEC/AACAvgAAwD8AAEA/AACAvgAAwD8AAEC/AACAPgAAwD8AAEC/AACAPgAAwD8AAEA/AACAPgAAwL8AAEA/AACAvgAAwL8AAEA/AACAvgAAwD8AAEA/AACAPgAAwD8AAEA///////9//n///////3/+f///////f/5///////9//n//fwAA/3//P/9/AAD/f/8//38AAP9//z//fwAA/3//P/9//////wAA/3//////AAD/f/////8AAP9//////wAA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AIA=")
+}, {
+"aabb": AABB(-0.25, -1.5, -0.75, 0.5, 3, 1.5),
+"attribute_data": PackedByteArray("AAAWQQAAAMAAABxBAAAAwAAAHEEAADDAAAAWQQAAMMAAABZBAAAwwAAAHEEAADDAAAAcQQAAAMAAABZBAAAAwA=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"material": ExtResource("3_41l1q"),
+"name": "Puertas_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAvgAAwL8AAEA/AACAvgAAwL8AAEC/AACAvgAAwD8AAEC/AACAvgAAwD8AAEA/AACAPgAAwD8AAEA/AACAPgAAwD8AAEC/AACAPgAAwL8AAEC/AACAPgAAwL8AAEA/AAD/f///AAAAAP9///8AAAAA/3///wAAAAD/f///AAD///9//////////3//////////f/////////9//////w==")
+}]
+
+[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_hk5nd"]
+vertices = PackedVector3Array(0.25, 1.5, -0.75, -0.25, 1.5, -0.75, -0.25, -1.5, -0.75, 0.25, -1.5, -0.75, -0.25, -1.5, 0.75, 0.25, -1.5, 0.75, 0.25, -1.5, -0.75, -0.25, -1.5, -0.75, -0.25, 1.5, 0.75, -0.25, 1.5, -0.75, 0.25, 1.5, -0.75, 0.25, 1.5, 0.75, 0.25, -1.5, 0.75, -0.25, -1.5, 0.75, -0.25, 1.5, 0.75, 0.25, 1.5, 0.75, -0.25, -1.5, 0.75, -0.25, -1.5, -0.75, -0.25, 1.5, -0.75, -0.25, 1.5, 0.75, 0.25, 1.5, 0.75, 0.25, 1.5, -0.75, 0.25, -1.5, -0.75, 0.25, -1.5, 0.75)
+indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_skr4e"]
+data = PackedVector3Array(0.25, 1.5, -0.75, -0.25, 1.5, -0.75, -0.25, -1.5, -0.75, 0.25, 1.5, -0.75, -0.25, -1.5, -0.75, 0.25, -1.5, -0.75, -0.25, -1.5, 0.75, 0.25, -1.5, 0.75, 0.25, -1.5, -0.75, -0.25, -1.5, 0.75, 0.25, -1.5, -0.75, -0.25, -1.5, -0.75, -0.25, 1.5, 0.75, -0.25, 1.5, -0.75, 0.25, 1.5, -0.75, -0.25, 1.5, 0.75, 0.25, 1.5, -0.75, 0.25, 1.5, 0.75, 0.25, -1.5, 0.75, -0.25, -1.5, 0.75, -0.25, 1.5, 0.75, 0.25, -1.5, 0.75, -0.25, 1.5, 0.75, 0.25, 1.5, 0.75, -0.25, -1.5, 0.75, -0.25, -1.5, -0.75, -0.25, 1.5, -0.75, -0.25, -1.5, 0.75, -0.25, 1.5, -0.75, -0.25, 1.5, 0.75, 0.25, 1.5, 0.75, 0.25, 1.5, -0.75, 0.25, -1.5, -0.75, 0.25, 1.5, 0.75, 0.25, -1.5, -0.75, 0.25, -1.5, 0.75)
+
+[sub_resource type="Animation" id="Animation_0ks31"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xr37f"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hk5nd"]
+_data = {
+&"RESET": SubResource("Animation_0ks31"),
+&"open": SubResource("Animation_xr37f")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ks31"]
+size = Vector3(1.07544, 2.99072, 1.4939)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hk5nd"]
+
+[node name="Door5" type="StaticBody3D" groups=["Interactable"]]
+script = ExtResource("1_tdxkr")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.778137)
+
+[node name="entity_41_func_geo" type="StaticBody3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.778137)
+collision_mask = 0
+
+[node name="entity_36_mesh_instance" type="MeshInstance3D" parent="Node3D/entity_41_func_geo"]
+mesh = SubResource("ArrayMesh_tdxkr")
+skeleton = NodePath("../../..")
+
+[node name="entity_41_occluder_instance" type="OccluderInstance3D" parent="Node3D/entity_41_func_geo"]
+occluder = SubResource("ArrayOccluder3D_hk5nd")
+
+[node name="entity_41_collision_shape" type="CollisionShape3D" parent="Node3D/entity_41_func_geo"]
+shape = SubResource("ConcavePolygonShape3D_skr4e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_hk5nd")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_oeqy0")
+bus = &"Door"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00109863, 0.000732422, -0.0133057)
+shape = SubResource("BoxShape3D_0ks31")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hk5nd")
+disabled = true

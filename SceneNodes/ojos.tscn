@@ -139,6 +139,8 @@ shape = SubResource("BoxShape3D_wmiod")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+aabb = AABB(-0.8, -0.8, -0.8, 1.6, 1.6, 1.6)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1.10174, 0, 0, 0, 1.11582, 0, 0, 0, 1, 0, 0.259045, 0)

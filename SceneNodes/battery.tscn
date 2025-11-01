@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bj168hgmsw38y"]
 
 [ext_resource type="Script" uid="uid://bmv6ri5k4o7br" path="res://Scripts/Interactables/battery.gd" id="1_3ktes"]
+[ext_resource type="Texture2D" uid="uid://dmg04y4yb5jrx" path="res://sprites/Items/pila.png" id="2_fa0hx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fa0hx"]
 size = Vector3(0.307495, 0.300385, 0.302368)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qj5w0"]
 size = Vector3(0.58194, 0.456055, 0.514771)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3ktes"]
 
 [node name="Battery" type="StaticBody3D" groups=["Interactable"]]
 script = ExtResource("1_3ktes")
@@ -18,13 +17,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00250244, 0.00111389, -0.00
 shape = SubResource("BoxShape3D_fa0hx")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_fa0hx")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0063324, -0.00439453, -0.00823975)
 shape = SubResource("BoxShape3D_qj5w0")
-
-[node name="test(borrar despues)" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
-mesh = SubResource("BoxMesh_3ktes")

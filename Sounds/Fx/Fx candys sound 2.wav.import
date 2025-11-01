@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c40bssk1kjh2y"
+path="res://.godot/imported/Fx candys sound 2.wav-1db2146ef521e4be63d4375e5bd76618.sample"
+
+[deps]
+
+source_file="res://Sounds/Fx/Fx candys sound 2.wav"
+dest_files=["res://.godot/imported/Fx candys sound 2.wav-1db2146ef521e4be63d4375e5bd76618.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

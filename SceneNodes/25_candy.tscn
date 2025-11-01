@@ -22,4 +22,4 @@ shape = SubResource("BoxShape3D_jsye8")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0, 0.38, 0.95, 1)
-light_energy = 0.5
+light_energy = 0.125
