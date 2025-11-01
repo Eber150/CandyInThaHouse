@@ -29,6 +29,7 @@ func final() -> void:
 		$Final1Background.show();
 	elif(player.candyPoints >= 1 and player.candyPoints < 100):
 		$Final2.show();
+		$Final2Background.show();
 	elif (player.candyPoints >= 100 and player.candyPoints < 8000):
 		$Final3.show();
 		$Final3Background.show()
