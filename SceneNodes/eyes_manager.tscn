@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo8t5q1b07afu"]
+
+[ext_resource type="Script" uid="uid://b5d2k6h16ixay" path="res://Scripts/Enemies/eyes_manager.gd" id="1_spkih"]
+
+[node name="EyesManager" type="Node3D"]
+script = ExtResource("1_spkih")
