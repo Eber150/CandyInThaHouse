@@ -102,3 +102,4 @@ flashlight={
 [rendering]
 
 scaling_3d/scale=0.5
+occlusion_culling/use_occlusion_culling=true
