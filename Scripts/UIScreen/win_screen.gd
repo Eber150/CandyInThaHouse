@@ -2,6 +2,10 @@ extends Control
 
 
 @onready var candyAmountText := $CantidadCaramelos;
+@onready var musicGood1 := $Good1
+@onready var musicGood2 := $Good2
+@onready var musicBad1 := $Bad1
+@onready var musicBad2 := $Bad2
 var player
 
 func _ready() -> void:
@@ -26,13 +30,25 @@ func _on_menu_pressed() -> void:
 func final() -> void:
 	if(player.candyPoints < 1):
 		$Final1.show();
+		musicBad1.play();
 		$Final1Background.show();
 	elif(player.candyPoints >= 1 and player.candyPoints < 100):
 		$Final2.show();
+		musicBad1.play();
 		$Final2Background.show();
 	elif (player.candyPoints >= 100 and player.candyPoints < 8000):
 		$Final3.show();
+		musicGood1.play()
 		$Final3Background.show()
 	else:
 		$Final4.show();
+		musicGood1.play()
 		$Final4Background.show();
+
+
+func _on_good_1_finished() -> void:
+	musicGood2.play()
+
+
+func _on_bad_1_finished() -> void:
+	musicBad2.play()

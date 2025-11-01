@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://clrchr0c7qh10"]
+
+[ext_resource type="AudioStream" uid="uid://c0abjop4lbq74" path="res://Sounds/Fx/Fx-Hellhole loop.wav" id="1_wijpo"]
+
+[node name="HellHoleSound" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_wijpo")
+autoplay = true
+max_distance = 15.0
+bus = &"pozo"

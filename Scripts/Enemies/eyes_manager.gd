@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 				var material = color_rect.material as ShaderMaterial
 				var new_amplitude = 3.0 + (1.0 - Eye.timeToKill) * 46.0
 				material.set_shader_parameter("noise_amplitude", new_amplitude)
-			print(Eye.timeToKill)
 			if Eye.timeToKill <= 0:
 				Eye.target.LoseGame();
 			break;

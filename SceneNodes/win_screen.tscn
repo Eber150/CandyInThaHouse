@@ -1,12 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bv6xwyg08ubje"]
+[gd_scene load_steps=18 format=3 uid="uid://bv6xwyg08ubje"]
 
 [ext_resource type="Script" uid="uid://c4nstt4skig3b" path="res://Scripts/UIScreen/win_screen.gd" id="1_dgklu"]
 [ext_resource type="FontFile" uid="uid://dfbl7adohumr5" path="res://Fonts/Night Blood.ttf" id="2_507xe"]
 [ext_resource type="Texture2D" uid="uid://bgp1x0wtwe4ww" path="res://images/Peor_Final.png" id="2_j53cn"]
-[ext_resource type="Texture2D" uid="uid://diuf7q4c4bxo4" path="res://sprites/Candy/candysicon.png" id="4_pf22j"]
+[ext_resource type="Texture2D" uid="uid://barg2sps63cg7" path="res://sprites/Candy/candysicon.png" id="4_pf22j"]
 [ext_resource type="Texture2D" uid="uid://bqvvrjetut36g" path="res://images/final_mediomalo_1.png" id="4_r0t65"]
 [ext_resource type="Texture2D" uid="uid://cfhg41kj8uvyl" path="res://images/final_bueno_2.png" id="5_xafok"]
 [ext_resource type="Texture2D" uid="uid://c7c03jf8363xn" path="res://images/final_mejorhalloween.png" id="6_1b3ia"]
+[ext_resource type="AudioStream" uid="uid://bongakuh6okg3" path="res://Sounds/Endings/Musica - Good Ending(1) 48khz 24.wav" id="8_1b3ia"]
+[ext_resource type="AudioStream" uid="uid://cl3her7grd6pg" path="res://Sounds/Endings/Musica - Good Ending(2) 48khz 24.wav" id="9_k2fou"]
+[ext_resource type="AudioStream" uid="uid://bqjfbykib6lyj" path="res://Sounds/Endings/Musica - BadEnding(1) 48khz 24.wav" id="10_hbxdx"]
+[ext_resource type="AudioStream" uid="uid://dbwv4ro10gwde" path="res://Sounds/Endings/Musica - BadEnding(2) 48khz 24.wav" id="11_lsn0q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_64hrp"]
 font = ExtResource("2_507xe")
@@ -220,4 +224,26 @@ label_settings = SubResource("LabelSettings_jwjk5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Good1" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("8_1b3ia")
+bus = &"WinMusic"
+
+[node name="Good2" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("9_k2fou")
+bus = &"WinMusic"
+
+[node name="Bad1" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("10_hbxdx")
+bus = &"WinMusic"
+
+[node name="Bad2" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("11_lsn0q")
+bus = &"WinMusic"
+
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="finished" from="Good1" to="." method="_on_good_1_finished"]
+[connection signal="finished" from="Bad1" to="." method="_on_bad_1_finished"]

@@ -15,6 +15,8 @@ var candyPoints = 0;
 @onready var flashAnim := $Neck/Camera3D/Flashlight2/AnimationPlayer
 
 @onready var playerFxs := $PlayerFXs;
+@onready var candyFx := $Candy
+@onready var candy2Fx := $Candy2
 var lastPosition;
 
 var interactZone;
@@ -74,6 +76,11 @@ func _on_collision_sensor_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Candy"):
 		candyPoints += body.GetPoints();
 		candyText.text = str(candyPoints);
+		if(!candyFx.playing):
+			candyFx.play()
+		else:
+			candy2Fx.play()
+		
 		body.queue_free();
 	
 	if body.is_in_group("Enemy") and body.get_class() != "Eyes":
