@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx51yku31m643"]
+[gd_scene load_steps=5 format=3 uid="uid://bx51yku31m643"]
 
 [ext_resource type="Script" uid="uid://bcgo56dy0ubmu" path="res://Scripts/music_manager.gd" id="1_nm25n"]
 [ext_resource type="AudioStream" uid="uid://psu7yg34dhqd" path="res://Sounds/Tema 1/Musica - Tema 1 - Base 48khz 24.wav" id="1_o6ya6"]
 [ext_resource type="AudioStream" uid="uid://cshtialcbcbec" path="res://Sounds/Tema 1/Musica - Tema 1 - Melodia 48khz 24.wav" id="2_nm25n"]
+[ext_resource type="AudioStream" uid="uid://7l75psqo3nbe" path="res://Sounds/Sotano/Musica - Sotano 48khz 24.wav" id="4_5rbig"]
 
-[node name="MusicManager" type="Node3D"]
+[node name="MusicManager" type="Node3D" groups=["musicManager"]]
 script = ExtResource("1_nm25n")
 
 [node name="MusicGame" type="Node3D" parent="."]
@@ -18,3 +19,9 @@ bus = &"Base"
 stream = ExtResource("2_nm25n")
 autoplay = true
 bus = &"Melody"
+
+[node name="Basement" type="Node3D" parent="."]
+
+[node name="SongBasement" type="AudioStreamPlayer2D" parent="Basement"]
+stream = ExtResource("4_5rbig")
+bus = &"BasementMusic"

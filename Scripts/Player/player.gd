@@ -90,6 +90,9 @@ func _on_collision_sensor_body_entered(body: Node3D) -> void:
 func _on_collision_sensor_area_entered(area: Area3D) -> void:
 	if area.get_parent_node_3d().is_in_group("Interactable"):
 		interactZone = area.get_parent();
+	
+	if area.is_in_group("musicManager"):
+		area.changerMusic();
 
 func _on_collision_sensor_area_exited(area: Area3D) -> void:
 	if area.get_parent_node_3d().is_in_group("Interactable"):

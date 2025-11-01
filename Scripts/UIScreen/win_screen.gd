@@ -21,22 +21,22 @@ func showWinScreen() -> void:
 	get_tree().paused = true;
 
 func UpdateCandyAmount() -> void:
-	candyAmountText.text = str(player.candyPoints) + " / 34965"
+	candyAmountText.text = str(player.candyPoints) + " / 35965"
 
 func _on_menu_pressed() -> void:
 	get_tree().paused = false;
 	get_tree().change_scene_to_file("res://Scene/MainMenu.tscn")
 
 func final() -> void:
-	if(player.candyPoints < 1):
+	if(player.candyPoints < 10):
 		$Final1.show();
 		musicBad1.play();
 		$Final1Background.show();
-	elif(player.candyPoints >= 1 and player.candyPoints < 1000):
+	elif(player.candyPoints >= 10 and player.candyPoints < 5000):
 		$Final2.show();
 		musicBad1.play();
 		$Final2Background.show();
-	elif (player.candyPoints >= 1000 and player.candyPoints < 15000):
+	elif (player.candyPoints >= 5000 and player.candyPoints < 28000):
 		$Final3.show();
 		musicGood1.play()
 		$Final3Background.show()
