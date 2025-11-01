@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2bg4vkterlcj"]
+[gd_scene load_steps=6 format=3 uid="uid://c2bg4vkterlcj"]
 
 [ext_resource type="Script" uid="uid://dik88wsguwsf7" path="res://Scripts/UIScreen/LoseScreen.gd" id="1_bkqf3"]
+[ext_resource type="Texture2D" uid="uid://bgp1x0wtwe4ww" path="res://images/Peor_Final.png" id="2_bbqc0"]
 [ext_resource type="FontFile" uid="uid://dfbl7adohumr5" path="res://Fonts/Night Blood.ttf" id="2_kprl2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qsy2s"]
@@ -9,7 +10,7 @@ font_size = 87
 
 [sub_resource type="LabelSettings" id="LabelSettings_bkqf3"]
 font = ExtResource("2_kprl2")
-font_size = 31
+font_size = 51
 
 [node name="LoseScreen" type="Control"]
 process_mode = 3
@@ -17,34 +18,33 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_bkqf3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_bbqc0")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -269.0
-offset_top = -189.0
-offset_right = 270.0
-offset_bottom = -69.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -657.0
+offset_top = 90.0
+offset_right = -118.0
+offset_bottom = 210.0
+grow_horizontal = 0
 text = "Game Over"
 label_settings = SubResource("LabelSettings_qsy2s")
 horizontal_alignment = 1
@@ -52,16 +52,16 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -104.5
-offset_top = -123.0
-offset_right = 104.5
-offset_bottom = -48.0
-grow_horizontal = 2
+offset_left = -512.0
+offset_top = -215.0
+offset_right = -232.0
+offset_bottom = -114.0
+grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="Button"]
@@ -69,6 +69,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -10.0
+offset_right = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Reiniciar"
@@ -83,10 +85,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.5
-offset_top = 51.5
-offset_right = 104.5
-offset_bottom = 126.5
+offset_left = 448.0
+offset_top = 52.0
+offset_right = 728.0
+offset_bottom = 153.0
 grow_horizontal = 2
 grow_vertical = 2
 

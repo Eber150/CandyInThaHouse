@@ -123,7 +123,7 @@ _data = {
 &"floating": SubResource("Animation_y51hh")
 }
 
-[node name="Ojos" type="CharacterBody3D"]
+[node name="Ojos" type="CharacterBody3D" groups=["Eyes"]]
 script = ExtResource("1_gqtyr")
 chaseSpeed = 2.0
 patrolSpeed = 2.0
