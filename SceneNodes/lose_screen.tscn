@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2bg4vkterlcj"]
+[gd_scene load_steps=8 format=3 uid="uid://c2bg4vkterlcj"]
 
 [ext_resource type="Script" uid="uid://dik88wsguwsf7" path="res://Scripts/UIScreen/LoseScreen.gd" id="1_bkqf3"]
 [ext_resource type="Texture2D" uid="uid://bgp1x0wtwe4ww" path="res://images/Peor_Final.png" id="2_bbqc0"]
 [ext_resource type="FontFile" uid="uid://dfbl7adohumr5" path="res://Fonts/Night Blood.ttf" id="2_kprl2"]
+[ext_resource type="AudioStream" uid="uid://bqjfbykib6lyj" path="res://Sounds/Endings/Musica - BadEnding(1) 48khz 24.wav" id="4_tkw3v"]
+[ext_resource type="AudioStream" uid="uid://dbwv4ro10gwde" path="res://Sounds/Endings/Musica - BadEnding(2) 48khz 24.wav" id="5_ljyb0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qsy2s"]
 font = ExtResource("2_kprl2")
@@ -104,5 +106,14 @@ label_settings = SubResource("LabelSettings_bkqf3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Music1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tkw3v")
+bus = &"WinMusic"
+
+[node name="Music2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ljyb0")
+bus = &"WinMusic"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
+[connection signal="finished" from="Music1" to="." method="_on_music_1_finished"]

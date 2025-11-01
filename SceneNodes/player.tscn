@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjygrk015pvav"]
+[gd_scene load_steps=22 format=3 uid="uid://cjygrk015pvav"]
 
 [ext_resource type="Script" uid="uid://dh6vh5v5p8uf3" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dbuw6qk1y1f18" path="res://images/crossHair.png" id="2_6t5aa"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://duq1x7tvlbpav" path="res://Sounds/Fx/FX - paso2 48k 24.wav" id="7_ywhmn"]
 [ext_resource type="AudioStream" uid="uid://6pw82qsp34g7" path="res://Sounds/Fx/FX - paso3 48k 24.wav" id="8_3o6j0"]
 [ext_resource type="AudioStream" uid="uid://2od1y7apuicq" path="res://Sounds/Fx/FX - paso4 48k 24.wav" id="9_jfd7f"]
+[ext_resource type="AudioStream" uid="uid://cra1i3ay6oqdm" path="res://Sounds/Fx/FX - Abre Caramelo 48k 24.wav" id="12_jfd7f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4msq1"]
 
@@ -84,6 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26057, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.257949, 0)
+far = 200.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Neck/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.488731)
@@ -187,6 +189,14 @@ texture = ExtResource("7_3o6j0")
 [node name="PlayerFXs" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_pcnws")
 bus = &"Steps"
+
+[node name="Candy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_jfd7f")
+bus = &"Candy"
+
+[node name="Candy2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_jfd7f")
+bus = &"Candy"
 
 [connection signal="area_entered" from="CollisionSensor" to="." method="_on_collision_sensor_area_entered"]
 [connection signal="area_exited" from="CollisionSensor" to="." method="_on_collision_sensor_area_exited"]
