@@ -6,6 +6,8 @@
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_wijpo")
+unit_size = 15.0
+max_db = 5.0
 autoplay = true
-max_distance = 60.0
+max_distance = 70.0
 bus = &"pozo"

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0dcqgesm55yn"]
+
+[ext_resource type="Script" path="res://Scripts/changer_music.gd" id="1_1rcg8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ku2q"]
+size = Vector3(3, 2.9, 0.5)
+
+[node name="changerMusic2" type="Node3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_1rcg8")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0121002, 0.00845337, 0.0219879)
+shape = SubResource("BoxShape3D_4ku2q")

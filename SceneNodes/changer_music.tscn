@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctabbsuj7dv13"]
 
-[ext_resource type="Script" uid="uid://chgnmujtmrrnh" path="res://Scripts/changer_music.gd" id="1_a4u5x"]
+[ext_resource type="Script" path="res://Scripts/changer_music.gd" id="1_a4u5x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ku2q"]
-size = Vector3(0.192474, 2.97308, 7.45969)
+size = Vector3(1.5, 2.9, 0.5)
 
 [node name="changerMusic" type="Node3D"]
 script = ExtResource("1_a4u5x")
