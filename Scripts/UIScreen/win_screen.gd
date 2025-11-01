@@ -21,7 +21,7 @@ func showWinScreen() -> void:
 	get_tree().paused = true;
 
 func UpdateCandyAmount() -> void:
-	candyAmountText.text = str(player.candyPoints) + " / 11270"
+	candyAmountText.text = str(player.candyPoints) + " / 34965"
 
 func _on_menu_pressed() -> void:
 	get_tree().paused = false;
