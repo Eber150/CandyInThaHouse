@@ -1,18 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv6xwyg08ubje"]
+[gd_scene load_steps=14 format=3 uid="uid://bv6xwyg08ubje"]
 
 [ext_resource type="Script" uid="uid://c4nstt4skig3b" path="res://Scripts/UIScreen/win_screen.gd" id="1_dgklu"]
 [ext_resource type="FontFile" uid="uid://dfbl7adohumr5" path="res://Fonts/Night Blood.ttf" id="2_507xe"]
-[ext_resource type="Texture2D" uid="uid://8emgvi44gtub" path="res://images/final_bueno.png" id="2_tsg22"]
-[ext_resource type="Texture2D" uid="uid://dkrmom2ky7tcn" path="res://images/final_mejor.png" id="3_pf22j"]
+[ext_resource type="Texture2D" uid="uid://bgp1x0wtwe4ww" path="res://images/Peor_Final.png" id="2_j53cn"]
 [ext_resource type="Texture2D" uid="uid://diuf7q4c4bxo4" path="res://sprites/Candy/candysicon.png" id="4_pf22j"]
+[ext_resource type="Texture2D" uid="uid://bqvvrjetut36g" path="res://images/final_mediomalo_1.png" id="4_r0t65"]
+[ext_resource type="Texture2D" uid="uid://cfhg41kj8uvyl" path="res://images/final_bueno_2.png" id="5_xafok"]
+[ext_resource type="Texture2D" uid="uid://c7c03jf8363xn" path="res://images/final_mejorhalloween.png" id="6_1b3ia"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_64hrp"]
 font = ExtResource("2_507xe")
-font_size = 31
+font_size = 51
 
 [sub_resource type="LabelSettings" id="LabelSettings_pxg8q"]
 font = ExtResource("2_507xe")
-font_size = 31
+font_size = 51
 
 [sub_resource type="LabelSettings" id="LabelSettings_r2yix"]
 font = ExtResource("2_507xe")
@@ -39,6 +41,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dgklu")
 
+[node name="Final1Background" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j53cn")
+
 [node name="Final1" type="Label" parent="."]
 visible = false
 layout_mode = 1
@@ -47,16 +59,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = -52.5
-offset_right = 211.0
-offset_bottom = 52.5
+offset_left = -38.5
+offset_top = -152.5
+offset_right = 1028.5
+offset_bottom = 152.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "El peor halloween de tu vida, no tenes caramelos para disfrutar"
+text = "El peor halloween de tu vida, 
+no tenes caramelos para disfrutar"
 label_settings = SubResource("LabelSettings_64hrp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Final2Background" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_r0t65")
 
 [node name="Final2" type="Label" parent="."]
 visible = false
@@ -66,13 +89,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = -52.5
-offset_right = 211.0
-offset_bottom = 52.5
+offset_left = -38.5
+offset_top = -152.5
+offset_right = 1028.5
+offset_bottom = 152.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Uno de los peores halloween de tu vida, casi no tenes caramelos para disfrutar"
+text = "Uno de los peores halloween de tu vida, 
+casi no tenes caramelos para disfrutar"
 label_settings = SubResource("LabelSettings_pxg8q")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -85,7 +109,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_tsg22")
+texture = ExtResource("5_xafok")
 
 [node name="Final3" type="Label" parent="."]
 visible = false
@@ -112,7 +136,7 @@ visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("3_pf22j")
+texture = ExtResource("6_1b3ia")
 
 [node name="Final4" type="Label" parent="."]
 visible = false
