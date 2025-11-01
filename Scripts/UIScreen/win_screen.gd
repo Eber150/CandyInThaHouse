@@ -32,11 +32,11 @@ func final() -> void:
 		$Final1.show();
 		musicBad1.play();
 		$Final1Background.show();
-	elif(player.candyPoints >= 1 and player.candyPoints < 100):
+	elif(player.candyPoints >= 1 and player.candyPoints < 1000):
 		$Final2.show();
 		musicBad1.play();
 		$Final2Background.show();
-	elif (player.candyPoints >= 100 and player.candyPoints < 8000):
+	elif (player.candyPoints >= 1000 and player.candyPoints < 15000):
 		$Final3.show();
 		musicGood1.play()
 		$Final3Background.show()
