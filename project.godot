@@ -36,6 +36,7 @@ Enemy=""
 Player=""
 Interactable=""
 Ghosts=""
+Eyes=""
 
 [importer_defaults]
 

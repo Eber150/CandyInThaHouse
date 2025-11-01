@@ -1,5 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://brysr1hi23i0s"]
+[gd_scene load_steps=31 format=3 uid="uid://brysr1hi23i0s"]
 
+[ext_resource type="PackedScene" uid="uid://bo8t5q1b07afu" path="res://SceneNodes/eyes_manager.tscn" id="1_8t3no"]
 [ext_resource type="PackedScene" uid="uid://cjygrk015pvav" path="res://SceneNodes/player.tscn" id="1_k1bun"]
 [ext_resource type="PackedScene" uid="uid://c5it61a8cgn6g" path="res://SceneNodes/paper.tscn" id="3_uoi77"]
 [ext_resource type="PackedScene" uid="uid://c2bg4vkterlcj" path="res://SceneNodes/lose_screen.tscn" id="4_k1bun"]
@@ -50,6 +51,8 @@ data = PackedVector3Array(0, 1, 0.5, 0.049, 1, 0.4976, 0, 0.6, 0.5, 0.049, 1, 0.
 size = Vector3(0.208527, 0.44397, 0.327637)
 
 [node name="MechanicsTestScene" type="Node3D"]
+
+[node name="EyesManager" parent="." instance=ExtResource("1_8t3no")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_vcmt1")
@@ -185,5 +188,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9301, 0, -0.748783)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1248, 0, 5.44157)
 
 [node name="Ojos" parent="." node_paths=PackedStringArray("target", "navRegion") instance=ExtResource("18_8t3no")]
+target = NodePath("../player")
+navRegion = NodePath("../NavigationRegion3D")
+
+[node name="Ojos2" parent="." node_paths=PackedStringArray("target", "navRegion") instance=ExtResource("18_8t3no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.0725, 0, 28.2474)
+target = NodePath("../player")
+navRegion = NodePath("../NavigationRegion3D")
+
+[node name="Ojos3" parent="." node_paths=PackedStringArray("target", "navRegion") instance=ExtResource("18_8t3no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59703, 0, 22.1066)
 target = NodePath("../player")
 navRegion = NodePath("../NavigationRegion3D")
